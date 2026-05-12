@@ -45,3 +45,8 @@ next-env.d.ts
 
 # superset worktree metadata
 .superset/
+
+.projects/cache
+.projects/vault
+.env
+.env.local

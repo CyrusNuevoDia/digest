@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "providers": {
+    "vercel": {
+      "name": "Vercel"
+    }
+  },
+  "resources": {
+    "digest": {
+      "name": "digest",
+      "providerName": "Vercel",
+      "serviceId": "project"
+    }
+  }
+}

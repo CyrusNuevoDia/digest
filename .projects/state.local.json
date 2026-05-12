@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "project": {
+    "initializedAt": "2026-05-12T06:14:53.674Z",
+    "merchantDisplayName": null,
+    "merchantId": "acct_1QO0hMIeG7aRZgS8",
+    "projectId": "project_61UfXY51tqagwQe9916RXOeiPsSQlRePGfqWZsGxk71U",
+    "projectName": "digest"
+  },
+  "providers": {
+    "vercel": {
+      "accountRequestId": "facctrq_61UfXYhFLyB59gjcN16RXOeiPsSQlRePGfqWZsGxkC88",
+      "configuration": {},
+      "linkedAt": "2026-05-12T06:15:35.975Z",
+      "providerId": "prvdr_61ULUAr4zlQgZkvXY5LsG",
+      "providerName": "Vercel",
+      "redirectUrl": null,
+      "requestedAt": "2026-05-12T06:15:35.975Z",
+      "status": "complete"
+    }
+  },
+  "resources": {
+    "digest": {
+      "configuration": {
+        "name": "digest"
+      },
+      "createdAt": "2026-05-12T06:17:34.237Z",
+      "lastRevealedAt": "2026-05-12T06:17:35.377Z",
+      "lastStatus": "complete",
+      "name": "digest",
+      "providerId": "prvdr_61ULUAr4zlQgZkvXY5LsG",
+      "providerName": "Vercel",
+      "resourceId": "fres_61UfXaelp5jLDGitO16RXOeiPsSQlRePGfqWZsGxkW5Y",
+      "serviceId": "project"
+    }
+  }
+}

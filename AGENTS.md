@@ -103,3 +103,13 @@ The project uses Bun, Biome (ultracite), and `just`. Don't introduce npm scripts
 - All copy in MDX files: sentence case for headings.
 - Mobile must be flawless — Cyrus reads on his phone before bed.
 - No analytics in v1 (PostHog plumbing exists but is gated behind `NEXT_PUBLIC_POSTHOG_ENABLED=true`).
+
+<!-- stripe-projects-cli managed:agents-md:start -->
+## Stripe Projects CLI
+
+This repository is initialized for the Stripe project "digest".
+
+## Tools used
+
+- [Stripe CLI](https://docs.stripe.com/stripe-cli) with the `projects` plugin to manage third-party services, credentials, and deployments for this project. Use the stripe-projects-cli to manage deploying and access to third party services.
+<!-- stripe-projects-cli managed:agents-md:end -->
