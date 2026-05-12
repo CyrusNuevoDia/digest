@@ -1,0 +1,27 @@
+---
+date: "2026-03-29"
+title: "March 29, 2026"
+count: 1
+sources:
+  x: 1
+---
+
+<Item
+  id="2660a00afe1aa4dc984f5ba9d4218d92fad3c5742e603f67cf3dd233dee8d499"
+  url="https://x.com/i/web/status/2038385591818023278"
+  source="x"
+  title="Weekend over. Here’s what I built: https://t.co/84Vdwo3Fqv"
+  savedAt="2026-03-29T15:39:31-07:00"
+  author="@jayfarei"
+  tags={["thread", "x"]}
+>
+
+**TL;DR.** A weekend-built CLI that sanitizes agent traces and commits them to Hugging Face datasets — basically git for agent sessions.
+
+**Takeaways**
+
+- Schema designed for downstream SFT, RL, evals, and analytics (not just logging) — includes outcome signals, sub-agent hierarchy, and per-step tokens.
+- Solves the trust problem with deterministic sanitization + a HITL review inbox (TUI or web) before anything gets pushed publicly.
+- Claude Code session hook auto-captures conversations; content-hash dedup means safe re-pushing across machines. Install via `pipx install opentraces`.
+
+</Item>

@@ -1,0 +1,28 @@
+---
+date: "2026-02-28"
+title: "February 28, 2026"
+count: 1
+sources:
+  x: 1
+---
+
+<Item
+  id="e82bd72ca9e518b2a8a905c72bbc27a9bfe7d57f9c0b061473bda5714f84e86c"
+  url="https://x.com/i/web/status/2027744530124951831"
+  source="x"
+  title="@gemchange_ltd: How to Simulate Like a Quant Desk. Every Model, Every Formula,…"
+  savedAt="2026-02-28T05:55:44-08:00"
+  author="@gemchange_ltd"
+  tags={["bookmark", "x"]}
+>
+
+**TL;DR.** A build-from-scratch tour of quant simulation — coin flip → Monte Carlo → importance sampling — for actually pricing Polymarket contracts instead of vibing on gut probabilities.
+
+**Takeaways**
+
+- Crude Monte Carlo is worst exactly where it matters: variance peaks at p=0.5, the most-traded contracts on the platform.
+- Brier score is the calibration yardstick — under 0.10 is excellent; 538/Economist hit 0.06–0.12 on presidential races. Beat that and you have edge.
+- Importance sampling via exponential tilting (γ solves M(γ)=1) cuts variance 100–10,000× on tail-risk contracts — 100 tilted samples beat 1M crude ones.
+- Retail's core mistake: treating a contract as a biased coin with one parameter p, ignoring correlation, info flow, order book dynamics, and execution risk.
+
+</Item>

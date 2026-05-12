@@ -1,0 +1,48 @@
+---
+date: "2026-03-25"
+title: "March 25, 2026"
+count: 2
+sources:
+  x: 2
+---
+
+<Item
+  id="12aa5a1acbc8cf397694d99309e429411478531f78f4bce64118892688ae9eb0"
+  url="https://x.com/i/web/status/2036857870042411438"
+  source="x"
+  title="seems obvious but:"
+  savedAt="2026-03-25T10:28:53-07:00"
+  author="@rahulgs"
+  tags={["x"]}
+>
+
+**TL;DR.** Bet on what doesn't change — humans, UX, integrations, and agent feedback loops — not on benchmark gains the next model release will erase.
+
+**Takeaways**
+
+- "ngmi": context-trimming tricks, hybrid retrieval, finetuned cheaper-than-Opus models, custom memory systems, context graphs — all get steamrolled by the next frontier model.
+- "wagmi": product/UI, distribution, integrations, fast CI and verification loops, background agent infra, and meeting users where they already work.
+- Durable moats live in human-facing surfaces and infrastructure; transient moats live in model internals.
+
+</Item>
+
+<Item
+  id="c67eb749029ed58e829d0b288659a08b89752f9fe92adf90a53a291bb88b6714"
+  url="https://x.com/i/article/2036387800119975936"
+  source="x"
+  title="Building CLIs for agents"
+  savedAt="2026-03-25T04:10:38-07:00"
+  author="@ericzakariasson"
+  tags={["article", "x"]}
+>
+
+**TL;DR.** CLIs built for humans break agents — make every input a flag, every error actionable, and every command idempotent.
+
+**Takeaways**
+
+- Kill interactive prompts: if an agent can't pass it as a flag, it's stuck. Keep prompts as a fallback, not the default path.
+- `--help` should lead with examples, not prose — agents pattern-match off `mycli deploy --env staging --tag v1.2.3` faster than they read descriptions.
+- Idempotency + `--dry-run` + `--yes` are non-negotiable: agents retry constantly, need to preview destructive actions, and should bypass "are you sure?" cleanly.
+- Return structured data on success (deploy ID, URL, duration) — skip the emojis, agents parse the next step from your output.
+
+</Item>

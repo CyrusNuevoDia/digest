@@ -1,0 +1,69 @@
+---
+date: "2026-03-17"
+title: "March 17, 2026"
+count: 3
+sources:
+  x: 3
+---
+
+<Item
+  id="67290119adbd8cde660a3d28d6ef6f7cf27cecaf2a3e2deaf60c9ab3a6d29bdb"
+  url="https://x.com/i/web/status/2033978300003987527"
+  source="x"
+  title="@brian_scanlan thread (24): @brian_scanlan: We've been building an internal Cla…"
+  savedAt="2026-03-17T11:46:30-07:00"
+  author="@brian_scanlan"
+  tags={["thread", "x"]}
+>
+
+**TL;DR.** Intercom built an internal Claude Code platform with 13 plugins, 100+ skills, hooks enforcing PR workflows, and a read-only Rails production console exposed via MCP — used heavily by non-engineers without incident.
+
+**Takeaways**
+
+- Read-only prod Rails console via MCP: read-replica only, blocked tables, mandatory model verification, Okta auth, DynamoDB audit trail — top users turned out to be designers, CS engineers, and PMs.
+- Full OpenTelemetry instrumentation of every Claude Code lifecycle event (14 types → Honeycomb); SessionEnd hook runs Haiku over transcripts to auto-classify gaps and file pre-filled GitHub issues, closing the loop into new skills.
+- Hooks enforce process at the shell level: PreToolUse intercepts `gh pr create` to demand business intent, blocks edits to merged branches, and after 5 permission prompts triggers a 14-day transcript analyzer that auto-promotes safe commands to settings.json.
+- Flaky-test fixer is a 9-step forensic workflow with a 20-category taxonomy and hard rules ("NEVER skip a spec as a fix"), sweeping for sibling instances of the same antipattern across the suite.
+
+</Item>
+
+<Item
+  id="8ceab0ce4e9d33b24aa1d573995e1d39c8d9c6d4068118807b9a18421fc2d6a0"
+  url="https://x.com/i/article/2033772621536591872"
+  source="x"
+  title="Lessons from Building Claude Code: How We Use Skills"
+  savedAt="2026-03-17T09:53:48-07:00"
+  author="@trq212"
+  tags={["article", "x"]}
+>
+
+**TL;DR.** Skills work best when they cluster into clear categories—library refs, verification harnesses, data fetchers, or process automations—and lean on scripts and assets, not just markdown.
+
+**Takeaways**
+
+- "Just markdown files" is the wrong mental model: the power is in folders with scripts, assets, and dynamic hooks the agent can run.
+- Verification skills (Playwright/tmux drivers that record video or assert state at each step) are worth dedicated engineering time—they keep Claude honest about whether code actually works.
+- The best skills fit cleanly into one category; the confusing ones straddle several—use the taxonomy as an audit for gaps in your org's skill library.
+
+</Item>
+
+<Item
+  id="4d885f122d66a29f18d8a76633d19e719ad98363fb1b4c2a56d384299158e93c"
+  url="https://x.com/i/web/status/2033919362973770080"
+  source="x"
+  title="Patrick Collison tells people in their 20s to not move to San Francisco."
+  savedAt="2026-03-17T07:52:19-07:00"
+  author="@InvestLikeBest"
+  tags={["thread", "x"]}
+>
+
+**TL;DR.** SF has gotten too safe, too consensus-driven, and is now minting cautious founders who'd rather wrap OpenAI than risk going broke.
+
+**Takeaways**
+
+- SF's consensus bias is a feature when you're ahead of the curve, a bug when it disconnects you from how the rest of the world actually lives.
+- Pre-2008 founders operated "on the edge of the knife"; today's 23-year-olds get $3M seed rounds with "founder" as a resume hedge — no real downside, no real intensity.
+- Emerging-market founders build under genuine constraint, which breeds a creativity SF and NYC can't replicate from abundance.
+- "Starting companies is just too f**king safe" — the safety is attracting people who want to be employees, not founders.
+
+</Item>

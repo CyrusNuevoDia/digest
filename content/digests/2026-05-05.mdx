@@ -1,0 +1,87 @@
+---
+date: "2026-05-05"
+title: "May 5, 2026"
+count: 4
+sources:
+  x: 4
+---
+
+<Item
+  id="170ce5a5cc718c7a981c55019b3582baa220a84ab8af18e81576224122469e88"
+  url="https://x.com/i/article/2027152734072569856"
+  source="x"
+  title="LLM Optimization Interview Notes: Training and Inference"
+  savedAt="2026-05-05T21:33:11-07:00"
+  author="@gauri__gupta"
+  tags={["article", "x"]}
+>
+
+**TL;DR.** A field guide to the memory, compute, and inference tricks that actually keep billion-parameter LLMs trainable and deployable.
+
+**Takeaways**
+
+- Memory wins come from Flash Attention (tiling + recomputing softmax norm factors), MQA/GQA sharing KV across heads, and activation checkpointing trading compute for RAM.
+- Inference speedups stack: KV caching skips recomputing attention, stateful caching reuses conversation prefixes via rolling hashes, and speculative decoding lets a small draft model propose tokens for a big verifier.
+- Throughput tricks worth knowing: sequence packing kills padding waste, LongNet/BigBird get linear-complexity long context, and mixed precision (bfloat16) + quantization (PTQ/QAT) squeeze the rest.
+
+</Item>
+
+<Item
+  id="a0b8e35e87b3df9f245ff457187b191a4e4aa312f0886ec812787aee01556ad4"
+  url="https://x.com/i/web/status/2051807233059811629"
+  source="x"
+  title="&quot;There are three levels of story for a company."
+  savedAt="2026-05-05T16:32:19-07:00"
+  author="@ti_morse"
+  tags={["x"]}
+>
+
+**TL;DR.** Every company needs three nested stories: what you're doing, what it represents, and the dent it leaves in the universe.
+
+**Takeaways**
+
+- Level 1 (literal): "We're building a rocket." Most founders can't even articulate this clearly.
+- Level 2 (representation): "Reviving a stagnant industry by restoring private American spaceflight."
+- Level 3 (cosmic stakes): "Making mankind an interplanetary species." This is the version that recruits believers.
+
+</Item>
+
+<Item
+  id="a9f7f54c66a8ba295226bbbe51093d04a7e53495d6307e4d4181b60f76852b11"
+  url="https://x.com/i/web/status/2051748028034539793"
+  source="x"
+  title="@creatine_cycle thread (2): @creatine_cycle: SF is nothing without its people s…"
+  savedAt="2026-05-05T12:37:04-07:00"
+  author="@creatine_cycle"
+  tags={["thread", "x"]}
+>
+
+**TL;DR.** @creatine_cycle, @kyliebytes, and @Noahpinion map SF's tribes — from 7 Girls of SF to Larkin gays, rationalists, and hippies — and the groups trying to stitch art and tech together.
+
+**Takeaways**
+
+- Tour of SF's micro-scenes: Sam D'Amico BBQs, MOTS events, the lost Oakland warehouse rave/punk scene, and why the art-tech bridge is harder than it looks.
+- Shoutouts to the orgs actually moving the city: Hamilton Society, SF10x, GrowSF (and @garrytan).
+- Closes on why they still love SF in 2026 — framed as the controversial take.
+
+</Item>
+
+<Item
+  id="ddcc6a37a5bd9ff39a04c227c4d394f36e5647beae827eaf6c18046e849baa98"
+  url="https://x.com/i/web/status/2051740965485113473"
+  source="x"
+  title="My first interview with @lulumeservey, Founder of Rostra."
+  savedAt="2026-05-05T12:09:00-07:00"
+  author="@ti_morse"
+  tags={["thread", "x"]}
+>
+
+**TL;DR.** Lulu Meservey breaks down how cult leaders, Napoleon, and Elon build fanatical loyalty — and why most modern companies are terrified of doing the same.
+
+**Takeaways**
+
+- "Tyrant Mode" exists for a reason: leaky, activist-infested cultures (see Google) need a leader willing to alienate the right people.
+- Loyalty is engineered through visuals, story, and the Roman idea of *Auctoritas* — not org charts or comp packages.
+- Recruit for the spirit, not the letter; Jensen Huang's trick was inventing the metric that made his bet legible.
+
+</Item>

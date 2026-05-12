@@ -1,0 +1,27 @@
+---
+date: "2024-09-25"
+title: "September 25, 2024"
+count: 1
+sources:
+  x: 1
+---
+
+<Item
+  id="d03e1d2bb0da58b573010d34cb15d24298f6d5e18c813c14b159927aff6a3d8e"
+  url="https://x.com/i/web/status/1838980741197447529"
+  source="x"
+  title="@devongovett thread (3): @devongovett: I recently worked on a skeleton componen…"
+  savedAt="2024-09-25T09:35:49-07:00"
+  author="@devongovett"
+  tags={["thread", "x"]}
+>
+
+**TL;DR.** A `&lt;Skeleton&gt;` wrapper that auto-shimmers any component by making text transparent with `box-decoration-break: clone` and syncing animations via Web Animations API `startTime=0`.
+
+**Takeaways**
+
+- Wrap real components with mock content in `&lt;Skeleton&gt;` — no more hand-sizing rectangles to match layouts.
+- `box-decoration-break: clone` + transparent text + animated background gradient = shimmer that hugs each line fragment perfectly.
+- Set Web Animations API `startTime` to 0 to synchronize shimmer across every element on the page, regardless of when they mount.
+
+</Item>

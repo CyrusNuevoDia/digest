@@ -1,0 +1,2003 @@
+---
+date: "2026-05-11"
+title: "May 11, 2026"
+count: 104
+sources:
+  github: 104
+---
+
+<Item
+  id="37c32873c163df122fc40236435d0aa96b2ee219b11b43d0228638331a47dfab"
+  url="https://github.com/nanocoai/nanoclaw"
+  source="github"
+  title="nanocoai/nanoclaw"
+  savedAt="2026-05-11T18:54:26-07:00"
+  tags={["cli", "docker", "llm-agents"]}
+>
+
+**TL;DR.** A stripped-down OpenClaw alternative that runs each Claude agent in its own Docker container instead of trusting app-level allowlists.
+
+**Takeaways**
+
+- Pitch: same messaging-app integrations (WhatsApp, Telegram, Slack, Discord, Gmail) plus memory and scheduled jobs, but small enough to actually audit — one process, a handful of files, built on Anthropic's Agents SDK.
+- Security argument is the whole point: "Its security is at the application level (allowlists, pairing codes) rather than true OS-level isolation" — NanoClaw isolates agents at the container/filesystem layer instead.
+- Onboarding is a single `nanoclaw.sh` that bootstraps Node/pnpm/Docker, registers your Anthropic key, builds the container, and pairs a channel — with Claude Code auto-invoked to resume if a step fails.
+- 28.8k stars / 12.8k forks suggests this is well past hobby stage; worth a look if you've eyed OpenClaw but balked at giving 500k LOC full access to your accounts.
+
+</Item>
+
+<Item
+  id="ad7e8a2456eb8143a727faec3609d2d974eb751773b02a1db8c4593ee280b7b4"
+  url="https://github.com/hamelsmu/claude-review-loop"
+  source="github"
+  title="hamelsmu/claude-review-loop"
+  savedAt="2026-05-11T18:54:03-07:00"
+  tags={["cli", "coding", "llm-agents"]}
+>
+
+**TL;DR.** Claude Code plugin that auto-spawns parallel Codex agents to give every task a second opinion before you accept it.
+
+**Takeaways**
+
+- Stop hook intercepts Claude's exit and runs up to 4 parallel Codex reviewers (diff, holistic, Next.js, UX) that consolidate into one `reviews/review-&lt;id&gt;.md`.
+- Cross-vendor play: uses OpenAI's Codex as the reviewer of Claude's work — the "independent second opinion" is the whole pitch.
+- 658 stars, shell-based, requires Codex CLI + jq; auto-enables Codex's `multi_agent` flag on first run.
+
+</Item>
+
+<Item
+  id="c0f1921d8fce40503f0a0546d27c93e9f2ddf5791a908f16eaf1c85da2871e7f"
+  url="https://github.com/corywilkerson/fastpass"
+  source="github"
+  title="corywilkerson/fastpass"
+  savedAt="2026-05-11T18:53:26-07:00"
+  tags={["api", "cli", "coding"]}
+>
+
+**TL;DR.** A CLI that bolts Cloudflare Access auth onto any internal app in 60 seconds — no code changes required.
+
+**Takeaways**
+
+- `npx fastpass-cli protect staging.myapp.com --auth email --allow "me@example.com"` is the whole flow; no global install, no app-side SDK.
+- Supports email OTP, GitHub, and Google OAuth, with rules like `*@company.com`, `org:my-org`, or `everyone`.
+- Free for up to 50 users on Cloudflare's Zero Trust plan; reuses existing IdPs/apps instead of clobbering them — but only 43 stars, so it's a thin solo wrapper, not a battle-tested standard.
+
+</Item>
+
+<Item
+  id="df2ef02953c319fc32c4dcf2c34919498999fd39e57712a6ddc7725e82258d88"
+  url="https://github.com/sumansid/claude-app-server"
+  source="github"
+  title="sumansid/claude-app-server"
+  savedAt="2026-05-11T18:53:03-07:00"
+  tags={["api", "cli", "llm-agents"]}
+>
+
+**TL;DR.** A JSON-RPC server wraps Claude Code so any app can drive the CLI over WebSocket or stdio — no API key, just your existing Claude auth.
+
+**Takeaways**
+
+- Pitched as the Claude equivalent of OpenAI's Codex App Server; auth piggybacks on the `claude` CLI, so no separate API key or billing setup.
+- Pairs devices via a 6-char key embedded in a QR code at startup — scan from your phone to connect over LAN (`wss://` by default, `--no-tls` for reverse-proxy setups).
+- Full thread/turn protocol with fork, resume, streaming notifications, and permission modes (`default` / `acceptEdits` / `bypassPermissions`) for controlling file writes and bash execution.
+- Small but live: 28 stars, 7 forks, TypeScript, MIT-ish vibes — useful reference if you're building your own Claude-driven app shell.
+
+</Item>
+
+<Item
+  id="b3778d13e98ac6bac23969385219a8d6c425db4177187b6bf827047fafa64083"
+  url="https://github.com/OthmanAdi/planning-with-files"
+  source="github"
+  title="OthmanAdi/planning-with-files"
+  savedAt="2026-05-11T18:52:38-07:00"
+  tags={["llm-agents", "playbooks", "python"]}
+>
+
+**TL;DR.** A Claude Code skill that gives agents persistent markdown-based planning — the "scratchpad memory" pattern Manus rode to a $2B Meta acquisition.
+
+**Takeaways**
+
+- Stores plans, progress, and context in markdown files so work survives context-window resets and session clears.
+- Plugs into Claude Code, Cursor, Copilot, Codex, and Mastra via platform-specific hooks and lifecycle automation.
+- 20.9k stars, MIT license, v2.37.0 adds hash attestation to lock plan files against tampering and improves parallel-plan isolation.
+
+</Item>
+
+<Item
+  id="579688b92cc1a94a1574d6d4f7e98d327ed3399399a4b02d0168a55a23494411"
+  url="https://github.com/vercel-labs/opensrc"
+  source="github"
+  title="vercel-labs/opensrc"
+  savedAt="2026-05-11T18:52:17-07:00"
+  tags={["cli", "context-engineering", "llm-agents"]}
+>
+
+**TL;DR.** A Rust CLI that fetches and caches package source from npm, PyPI, crates.io, and GitHub so coding agents can grep real dependency code instead of guessing at it.
+
+**Takeaways**
+
+- `opensrc path &lt;pkg&gt;` returns a local path — pipes cleanly into `rg`, `cat`, `find` so agents inspect actual source without leaving the shell.
+- Multi-registry from one tool (`pypi:requests`, crates.io, GitHub), despite being installed via npm.
+- Vercel Labs, Apache-2.0, ~1.9k stars — positioned as agent context-engineering infrastructure, not a human dev utility.
+
+</Item>
+
+<Item
+  id="3e6b81bdcefa3ba160bde7bf125fdce5a8366ea7d9a3d4c49434cbdc1ae1977d"
+  url="https://github.com/RhysSullivan/fastergh"
+  source="github"
+  title="RhysSullivan/fastergh"
+  savedAt="2026-05-11T18:51:51-07:00"
+  tags={["api", "typescript"]}
+>
+
+**TL;DR.** A fast GitHub mirror UI that uses Convex as a real-time cache layer so the frontend never hits GitHub's API on page load.
+
+**Takeaways**
+
+- Architecture: GitHub webhooks stream into Convex, with raw ingestion → normalized tables → pre-computed projection views feeding a Next.js UI; writes (issues, comments, PR merges) go through optimistic mutations.
+- Four sync modes worth stealing as a pattern: bootstrap backfill, realtime webhooks, periodic reconciliation for drift repair, and async queue with retry/dead-letter.
+- TypeScript monorepo built on Effect + Convex with a first-party "Confect" integration package — interesting if you're curious about Effect in production or Convex as a read model.
+- 155 stars, 14 forks, only 3 open issues — small but tidy; needs Bun, a Convex account, and a GitHub PAT to run.
+
+</Item>
+
+<Item
+  id="bfb1b8fb45cf83cdd943930ab129a067983d1777e4dbf63fc0c89125b31e85b8"
+  url="https://github.com/samschott/maestral"
+  source="github"
+  title="samschott/maestral"
+  savedAt="2026-05-11T18:51:32-07:00"
+  tags={["api", "cli", "macos"]}
+>
+
+**TL;DR.** Open-source Python Dropbox client that ditches Dropbox's bloat for a lean macOS/Linux alternative with multi-account support.
+
+**Takeaways**
+
+- Drop-in replacement for the official Dropbox app on macOS/Linux — smaller bundle, lower memory, headless CLI option, and supports syncing multiple accounts at once.
+- Tradeoff: uses the public Dropbox API, so no binary diffing (more bandwidth than the official client), and no Paper, team management, or shared folder admin.
+- 3.3k stars, actively maintained; installable via Homebrew cask, PyPI, or Docker — but never run it alongside the official client on the same folder.
+
+</Item>
+
+<Item
+  id="6422dc29d33bd01676936420efa5db5859e68619cf9671283816968c2837a387"
+  url="https://github.com/alexknowshtml/api2cli"
+  source="github"
+  title="alexknowshtml/api2cli"
+  savedAt="2026-05-11T18:51:07-07:00"
+  tags={["api", "cli", "llm-agents"]}
+>
+
+**TL;DR.** Point Claude at any API and get back a dual-mode Commander.js CLI plus a SKILL.md so future sessions use it without reading code.
+
+**Takeaways**
+
+- Discovers endpoints three ways — docs parsing, live probing, or peek-api network captures — then catalogs auth, pagination, and rate limits before generating.
+- Output auto-switches: pretty tables in a terminal, JSON envelope with `next_actions` hints when piped to an agent.
+- Ships as a Claude Code skill (not a standalone tool), and emits a SKILL.md so the generated CLI is immediately reusable by other Claude sessions. 408 stars, 0 open issues.
+
+</Item>
+
+<Item
+  id="206b49d2fe0ec48063430c21645b07cc5d5d0a2aba16f7569287d73b9e24d8e3"
+  url="https://github.com/vadimdemedes/ink-ui"
+  source="github"
+  title="vadimdemedes/ink-ui"
+  savedAt="2026-05-11T18:50:46-07:00"
+  tags={["cli", "typescript"]}
+>
+
+**TL;DR.** Drop-in React components (inputs, selects, spinners, progress bars, badges) for building polished Ink CLIs without rolling your own primitives.
+
+**Takeaways**
+
+- Covers the boring-but-essential CLI surface: text/email/password/confirm inputs, single + multi-select, spinners, progress bars, alerts, and status messages.
+- Themeable via React context — use `extendTheme` to restyle built-ins or `useComponentTheme` to theme your own components consistently.
+- 2k stars but only 22 open issues and a tiny fork count — actively used, narrowly scoped, by the author of Ink itself (Vadim Demedes), so the API stays close to Ink's idioms.
+
+</Item>
+
+<Item
+  id="72d897f262273c2f4ae57cc7c9d4a133ba1a78e67d6018ca9a2a9e94fb0d86b8"
+  url="https://github.com/vadimdemedes/ink"
+  source="github"
+  title="vadimdemedes/ink"
+  savedAt="2026-05-11T18:50:20-07:00"
+  tags={["cli", "typescript"]}
+>
+
+**TL;DR.** React for the terminal — write CLIs with components, Flexbox, and hooks, then ship them as Node apps.
+
+**Takeaways**
+
+- Powers Claude Code, Gemini CLI, GitHub Copilot CLI, Wrangler, Linear's internal tooling, Gatsby, and Prisma — basically the default for serious interactive CLIs.
+- Uses Yoga under the hood so most CSS-like Flexbox props work; `&lt;Box&gt;` for layout, `&lt;Text&gt;` for styled output, `useInput` for keypresses.
+- 38k stars, TypeScript, `create-ink-app` scaffolds a project in seconds.
+- Maintainer explicitly bans fully AI-generated PRs — only Opus 4.6+ or Codex 5.4+ verified by a human are accepted.
+
+</Item>
+
+<Item
+  id="e73f642769273a2d46349ebcb45cc4076600d3112fffb3bf2520b3cd706fb7f5"
+  url="https://github.com/ByteLandTechnology/ink-multiline-input"
+  source="github"
+  title="ByteLandTechnology/ink-multiline-input"
+  savedAt="2026-05-11T18:49:58-07:00"
+  tags={["cli", "multiline-layout", "typescript"]}
+>
+
+**TL;DR.** A TypeScript multi-line text input for Ink CLIs with scrolling, cursor nav, masking, and a controlled-cursor variant.
+
+**Takeaways**
+
+- Drop-in `&lt;MultilineInput&gt;` for Ink apps: `value`/`onChange`, configurable `rows`/`maxRows`, custom submit keybindings, and password-style `mask`.
+- `ControlledMultilineInput` exposes manual cursor position — useful if you're building autocomplete, vim-like motions, or syntax-aware editors on top.
+- Tiny and early-stage (5 stars, 1 fork, 0 issues) — fine for hobby TUIs, but you'd be an early adopter if you ship it in something serious.
+
+</Item>
+
+<Item
+  id="63f5412e975c525f28a5b03f8581c81a42da1398f053aa19baf8e08e76523d40"
+  url="https://github.com/vadimdemedes/pastel"
+  source="github"
+  title="vadimdemedes/pastel"
+  savedAt="2026-05-11T18:49:34-07:00"
+  tags={["cli", "typescript"]}
+>
+
+**TL;DR.** Build Ink-based CLIs with Next.js-style file routing — drop React components in `commands/` and get type-safe args via Zod for free.
+
+**Takeaways**
+
+- File-based routing for CLIs: `commands/index.tsx` is the default, nested folders become subcommands, exports define options via Zod schemas that flow in as typed props.
+- Auto-generated `--help`, alias support, and Commander.js under the hood — you write React, it handles the parsing plumbing.
+- 2.4k stars but only 18 open issues and 44 forks; niche but stable. Best for devs already comfortable with Ink who want structure instead of hand-rolling yargs/commander.
+
+</Item>
+
+<Item
+  id="b6a4caf9620f96267643c44f0f74840d9239f4ad12c1a4748e95f0cce9b65e85"
+  url="https://github.com/emotion-machine-org/with-md"
+  source="github"
+  title="emotion-machine-org/with-md"
+  savedAt="2026-05-11T18:49:06-07:00"
+  tags={["llm-agents", "multiplayer", "typescript"]}
+>
+
+**TL;DR.** Real-time collaborative markdown editor that treats GitHub repos as the filesystem, not a sync target.
+
+**Takeaways**
+
+- Three-mode editor (Read/Edit/Source) with syntax gating — TipTap-incompatible markdown (HTML blocks, footnotes) auto-kicks you to Source mode to prevent round-trip data loss.
+- Stack is Next.js + Convex + Hocuspocus/Yjs CRDTs; ships live cursors, anchored comments with fuzzy recovery, branch switching, diffs, and anonymous share links.
+- Small but real: 62 stars, 0 open issues, TypeScript monorepo, positioned for "humans and agents" editing the same markdown.
+
+</Item>
+
+<Item
+  id="7df06bb2b22ab1e4f5689da87915c1dffeb5f03c4a0b70939c0d16caf5cd17fc"
+  url="https://github.com/CyrusNuevoDia/coderlm"
+  source="github"
+  title="CyrusNuevoDia/coderlm"
+  savedAt="2026-05-11T18:48:40-07:00"
+  tags={["cli", "coding", "context-engineering"]}
+>
+
+**TL;DR.** Wraps Codex/Gemini/Claude in a shell harness that forces them to discover files with `fd`/`rg` and auto-truncates bash output, turning any coding agent into a recursive language model that survives huge codebases.
+
+**Takeaways**
+
+- Trick is injecting context guards via `BASH_ENV` — every subshell auto-truncates `cat`/`rg`/`find` output (head+tail mode), but piping to a file bypasses truncation so multi-step work still flows.
+- Codex and Gemini support recursive sub-agents (&gt;20 files triggers divide-and-conquer); Claude is non-recursive only because it can't spawn nested Claude sessions.
+- Cyrus's own repo, 20 stars, MIT, shipped on both npm and PyPI — `bunx coderlm@latest` or `uvx coderlm` and you're running.
+
+</Item>
+
+<Item
+  id="51bc11842fcae22dde5721a272b8a0fed67b72165dbfd26c88a9947510cd71b7"
+  url="https://github.com/distr-sh/distr"
+  source="github"
+  title="distr-sh/distr"
+  savedAt="2026-05-11T18:47:58-07:00"
+  tags={["api", "docker"]}
+>
+
+**TL;DR.** Open-source control plane for shipping your software into customer-managed environments — Docker Compose, Swarm, or Helm — with a built-in OCI registry and white-label portal.
+
+**Takeaways**
+
+- Targets the BYOC / on-prem distribution pain: prebuilt agents handle deploys, logs, metrics, and remote troubleshooting so you don't roll your own.
+- Batteries included: container registry with access control + analytics, license management per customer, REST API, JS SDK, and a GitHub Action for CI version cuts.
+- Go-based, Apache 2.0, ~1.15k stars, self-hostable via Docker Compose or Helm — also offered as SaaS at distr.sh if you don't want to run it.
+
+</Item>
+
+<Item
+  id="c79f44402b6f1b6b867ae76331894e977960d3e1f0663bd6e19e3290559dfae5"
+  url="https://github.com/pmndrs/valtio"
+  source="github"
+  title="pmndrs/valtio"
+  savedAt="2026-05-11T18:47:28-07:00"
+  tags={["typescript"]}
+>
+
+**TL;DR.** Valtio wraps your state object in a proxy so you mutate it like plain JS and React components re-render only on the fields they actually read.
+
+**Takeaways**
+
+- `proxy()` for mutation tracking + `useSnapshot()` for render-optimized reads — rule of thumb: snapshots in render, source everywhere else.
+- Ships `subscribe`/`subscribeKey`, `proxySet`/`proxyMap`, `ref` for untracked objects, Redux DevTools, and React 19 `use()` for async — works in vanilla JS too.
+- 10k+ stars from the pmndrs (Three.js/Zustand) crew — the appeal is escaping reducer/selector boilerplate, but TS users hit the readonly-snapshot friction documented in issue #327.
+
+</Item>
+
+<Item
+  id="939ce335fdecc816d88548ff332de62d9cf5797eec3b477d717330d1de6f4933"
+  url="https://github.com/remorses/termcast"
+  source="github"
+  title="remorses/termcast"
+  savedAt="2026-05-11T18:47:03-07:00"
+  tags={["api", "cli", "typescript"]}
+>
+
+**TL;DR.** Raycast's API, but rendered in your terminal — write TUIs in React and ship them as single-file cross-platform binaries.
+
+**Takeaways**
+
+- Port existing Raycast extensions or build new TUIs using familiar `List`/`Action`/`ActionPanel` components; great for devs who want Raycast UX on Linux servers or remote shells where Raycast can't run.
+- Bun-only runtime (not Node); `termcast release` cross-compiles for macOS/Linux/Windows and publishes a `curl | bash` installer via GitHub releases.
+- Also works as a library via `renderWithProviders`, giving you terminal-native context (cwd, stdin, argv) that Raycast itself doesn't expose — 314 stars, built on opentui.
+
+</Item>
+
+<Item
+  id="39c29ef0c0c991010b98bcd0dc0573d84bfc705abe2a32d985e82a9a5045a7ba"
+  url="https://github.com/craft-ai-agents/craft-agents-oss"
+  source="github"
+  title="craft-ai-agents/craft-agents-oss"
+  savedAt="2026-05-11T18:46:39-07:00"
+  tags={["api", "context-engineering", "llm-agents"]}
+>
+
+**TL;DR.** An open-source, document-centric desktop app from craft.do for multitasking with AI agents—connect Linear, Gmail, or any API by just telling the agent "add it.".
+
+**Takeaways**
+
+- Built on Claude Agent SDK + Pi SDK side-by-side; runs as desktop app, headless server on a VPS, or CLI for scripting and CI/CD.
+- Skills + Sources model: paste an OpenAPI spec, MCP config, or just describe what you want—it reads docs, sets up credentials, and wires everything up.
+- Apache 2.0, 5.9k stars, and the team dogfoods it hard: they build Craft Agents using Craft Agents, no code editor.
+
+</Item>
+
+<Item
+  id="18ff38e9ffed9a6923b3adbab995c26c3adb4ff4878bed270528e6ec32325f20"
+  url="https://github.com/tw93/Pake"
+  source="github"
+  title="tw93/Pake: 🤱🏻 Turn any webpage into a desktop app with one command."
+  savedAt="2026-05-11T18:46:12-07:00"
+  tags={["browser", "cli", "coding"]}
+>
+
+**TL;DR.** Turn any website into a 5MB native desktop app with one CLI command — Electron's bloat without the bloat.
+
+**Takeaways**
+
+- Rust + Tauri under the hood means ~20x smaller bundles and lower memory than Electron equivalents.
+- Ships ready-made packages for WeRead, Twitter, Grok, ChatGPT, YouTube — or roll your own with custom icons, window dims, ad removal, and shortcuts.
+- 47k stars, actively maintained; the online builder route means non-devs can package a site with zero local toolchain.
+
+</Item>
+
+<Item
+  id="dbf1af942ff519c974061045e1d090c8431bd71a85c291bfa6856aa39f1f4807"
+  url="https://github.com/unkeyed/unkey"
+  source="github"
+  title="unkeyed/unkey"
+  savedAt="2026-05-11T18:45:48-07:00"
+  tags={["api", "typescript"]}
+>
+
+**TL;DR.** Open-source TypeScript platform for building modern APIs with key management, rate limiting, and usage analytics out of the box.
+
+**Takeaways**
+
+- Built for developers shipping API products who don't want to reinvent auth, quotas, and tracking infrastructure.
+- Solid traction at 5.3k stars and 619 forks, with 231 open issues signaling active development and backlog.
+- Contribution gate is strict: discuss publicly on GitHub/Discord and get core team approval before writing code — no private DMs, no surprise PRs.
+
+</Item>
+
+<Item
+  id="d816fb0e1de50fcb5c2fed8268e166206622bd83dca787ae4968299fa63bc321"
+  url="https://github.com/mgonto/executive-assistant-skills"
+  source="github"
+  title="mgonto/executive-assistant-skills: Make OpenClaw the best executive assistant i…"
+  savedAt="2026-05-11T18:45:27-07:00"
+  tags={["chief-of-staff", "llm-agents", "playbooks"]}
+>
+
+**TL;DR.** Five OpenClaw skills that automate meeting prep, follow-ups, email drafting, and morning digests — author claims they replaced his actual human EA.
+
+**Takeaways**
+
+- Skills are just markdown `SKILL.md` files on cron schedules (pre-meeting, post-meeting, morning) that deliver to WhatsApp/Slack; manual triggers also work.
+- Includes a `humanizer` skill specifically to scrub AI-tells from outputs — a tacit admission that the other four sound robotic without it.
+- Stack is opinionated and heavy: requires OpenClaw, gog CLI for Gmail, Granola/Grain for transcripts, Todoist CLI, and a `style/` directory of email voice guides.
+
+</Item>
+
+<Item
+  id="4cae20630e38a149179dd8322e4024e7413e586deca2164104553ea57ffee0cb"
+  url="https://github.com/lerim-dev/lerim-cli"
+  source="github"
+  title="lerim-dev/lerim-cli"
+  savedAt="2026-05-11T18:45:01-07:00"
+  tags={["cli", "context-engineering", "llm-agents"]}
+>
+
+**TL;DR.** Lerim is a local-first SQLite memory layer that watches your coding-agent sessions (Claude Code, Cursor, Codex) and feeds the next one decisions, constraints, and precedent instead of a blank slate.
+
+**Takeaways**
+
+- Stores durable context in `~/.lerim/context.sqlite3` shared across agents, plus a compact `WORKING_MEMORY.md` for fast startup.
+- Hybrid retrieval: local ONNX embeddings via `sqlite-vec` + FTS5 + Reciprocal Rank Fusion — no cloud LLM calls required.
+- Exposes semantic tools (`search_context`, `save_context`, `revise_context`) rather than file CRUD, so agents reason in records, not files.
+- 79 stars, BSL-1.1 license (source-available, not OSI-open) — worth noting before depending on it commercially.
+
+</Item>
+
+<Item
+  id="a5e43b1572bfaf36e2648a8679bb6d6c1304267e28a5add3ce5a3d2947a21312"
+  url="https://github.com/paperclipai/paperclip"
+  source="github"
+  title="paperclipai/paperclip: Open-source orchestration for zero-human companies"
+  savedAt="2026-05-11T18:44:41-07:00"
+  tags={["chief-of-staff", "llm-agents", "task-management"]}
+>
+
+**TL;DR.** Open-source orchestration layer that turns your sprawl of AI agents into a fake company with org charts, budgets, and a CEO.
+
+**Takeaways**
+
+- Node.js + React dashboard where you define a company goal ("Build the #1 AI note app to $1M MRR"), hire agents into roles, and monitor work/costs from one place.
+- Provider-agnostic — "if it can receive a heartbeat, it's hired" — coordinates Claude Code, Codex, Cursor, OpenClaw, etc. under one org chart with monthly per-agent budgets that hard-stop on limit.
+- Pitch is aimed squarely at people running 20 Claude Code terminals at once; upcoming "Clipmart" will let you one-click import pre-built company templates.
+
+</Item>
+
+<Item
+  id="c012d5b9159afa2aa6eed3546c8b531e4b5a2d017c498086ad0bc1f1c2734eca"
+  url="https://github.com/openai/symphony"
+  source="github"
+  title="openai/symphony"
+  savedAt="2026-05-11T18:44:19-07:00"
+  tags={["llm-agents", "task-management"]}
+>
+
+**TL;DR.** OpenAI open-sourced Symphony, a system that watches Linear boards and dispatches autonomous coding agents to land PRs with CI, reviews, and walkthrough videos as proof of work.
+
+**Takeaways**
+
+- Pitch is "manage work, not agents" — Symphony spawns isolated implementation runs per ticket and only surfaces results once they pass checks.
+- Built in Elixir with 13.1k stars already, Apache 2.0, but flagged as a low-key engineering preview for trusted environments only.
+- Works best on codebases that have adopted OpenAI's "harness engineering" practices; the SPEC.md is designed so you can have your own agent reimplement Symphony in any language.
+
+</Item>
+
+<Item
+  id="9b8ebe44ca8e44c882d3ed5f7b8bb3705fbbbde5597a205b90b8595252978a02"
+  url="https://github.com/Qix-/better-exceptions"
+  source="github"
+  title="Qix-/better-exceptions: Pretty and useful exceptions in Python, automatically."
+  savedAt="2026-05-11T18:43:46-07:00"
+  tags={["python"]}
+>
+
+**TL;DR.** Drop-in Python library that rewrites tracebacks to show the actual values of every variable on the failing line.
+
+**Takeaways**
+
+- Install with pip, flip `BETTER_EXCEPTIONS=1`, and stock tracebacks instantly become annotated with intermediate values — zero code changes required.
+- Ships integrations for the REPL, unittest, and Django (middleware + logging filter to avoid double-logged errors).
+- Unset the env var in production — those inline value dumps will happily leak secrets into your logs.
+
+</Item>
+
+<Item
+  id="be11388e8bf97c5117134a197fbf7b10193a9e1a9b08f03de8b3eb79a55e31f4"
+  url="https://github.com/simplexlabs/montage"
+  source="github"
+  title="simplexlabs/montage"
+  savedAt="2026-05-11T18:43:18-07:00"
+  tags={["coding", "llm-agents", "playbooks"]}
+>
+
+**TL;DR.** An agentic fork of Remotion's Next.js template that lets coding agents crank out polished product launch videos in hours, not weeks.
+
+**Takeaways**
+
+- Drop the repo into Claude Code/Cursor/Codex, point it at your branding, and tell it to remix the example compositions — it's explicitly not meant to be run manually.
+- Ships a spring-physics animation library (`shared/animations.ts`) with typing effects, masked reveals, and power wipes so agent output looks consistent instead of CSS-transition janky.
+- Tiny and brand-new (18 stars, 0 forks, MIT) — but inherits Remotion's licensing terms, which matter for commercial use.
+
+</Item>
+
+<Item
+  id="b9d2abdd810b52f872c089f6f2ea2c835b550626cce867d437d8fe3fc190e7c3"
+  url="https://github.com/googleworkspace/cli"
+  source="github"
+  title="googleworkspace/cli"
+  savedAt="2026-05-11T18:42:26-07:00"
+  tags={["api", "cli", "llm-agents"]}
+>
+
+**TL;DR.** Google's unofficial `gws` CLI dynamically generates commands for every Workspace API by reading Google's Discovery Service at runtime, with 40+ bundled skills built for AI agents.
+
+**Takeaways**
+
+- One tool covers Drive, Gmail, Calendar, Sheets, Docs, Chat, Admin — new API endpoints appear automatically without CLI updates.
+- Structured JSON output and a built-in skill library make it agent-friendly out of the box; `+` prefix helpers handle common tasks like sending emails or viewing agendas.
+- Written in Rust, distributed via npm/Homebrew/binaries, 20.9k stars but explicitly "not an officially supported Google product" and pre-v1.0 with expected breaking changes.
+
+</Item>
+
+<Item
+  id="5dc7a1c8539e49065c743624224df1326ba64b70dc09d5440143898239a0b935"
+  url="https://github.com/es617/claude-replay"
+  source="github"
+  title="es617/claude-replay"
+  savedAt="2026-05-11T18:42:00-07:00"
+  tags={["cli", "coding", "llm-agents"]}
+>
+
+**TL;DR.** Turn Claude Code, Cursor, Codex, Gemini, or OpenCode session logs into a single self-contained HTML replay you can embed or share.
+
+**Takeaways**
+
+- Auto-detects transcripts from five major AI coding agents and outputs zero-dependency HTML with playback controls, bookmarks, themes, and a file activity sidebar.
+- `--serve --watch` mode lets you monitor agent sessions live as they run — useful for remote machines or containers.
+- 680 stars, MIT-licensed, zero runtime dependencies; install via `npm i -g claude-replay` or run with `npx`. Built-in secret redaction before export.
+
+</Item>
+
+<Item
+  id="26df4fb9eba48139a114324c38b3a2c599edd84d26f505137e27c97413e218c7"
+  url="https://github.com/Michaelliv/mercury"
+  source="github"
+  title="Michaelliv/mercury"
+  savedAt="2026-05-11T18:41:38-07:00"
+  tags={["cli", "docker", "llm-agents"]}
+>
+
+**TL;DR.** A single-Docker-container personal AI assistant that lives inside WhatsApp, Slack, and Discord, with sandboxed shell exec via `pi` and pairing-code admin onboarding.
+
+**Takeaways**
+
+- Bring-your-own bot: drop Mercury into a chat app, pair via `/pair &lt;code&gt;` in DM for admin or in a group to activate it there.
+- Architecture is opinionated and tight — adapters → ingress → policy (triggers, RBAC, mutes, rate limits) → runtime, all in one container with SQLite for state.
+- Niche but loved: 142 stars, 9 forks, only 3 open issues — a solo "this one is mine" project, not a framework play. TypeScript, extensible via skills/jobs/CLIs.
+
+</Item>
+
+<Item
+  id="cfbbdcd2460d1bee8d608c5baa5143fde1ac6d1ea3eb8bb6dc486015e7b8492b"
+  url="https://github.com/tursodatabase/agentfs"
+  source="github"
+  title="tursodatabase/agentfs"
+  savedAt="2026-05-11T18:41:11-07:00"
+  tags={["llm-agents"]}
+>
+
+**TL;DR.** A SQLite-backed filesystem built for AI agents — every file op, tool call, and state change logged, snapshottable with a single `cp`.
+
+**Takeaways**
+
+- Three interfaces in one file: POSIX-like FS, key-value store, and tool-call audit trail — all queryable with SQL.
+- Replaces Docker/git worktrees for agent isolation with system-wide copy-on-write, and works in serverless or browser environments where containers don't.
+- 2.9k stars, MIT, Rust core with TS/Python/Rust SDKs and a FUSE/NFS mount CLI — but flagged BETA, so not production-safe yet.
+
+</Item>
+
+<Item
+  id="629d52e184fb8304fe3d7f901f57ca7842c4fb080dc90724d45d84524460e09c"
+  url="https://github.com/apify/mcpc"
+  source="github"
+  title="apify/mcpc"
+  savedAt="2026-05-11T18:40:50-07:00"
+  tags={["cli", "llm-agents", "typescript"]}
+  stars={27}
+>
+
+**TL;DR.** A universal CLI client for MCP that lets any agent with a Bash tool use MCP servers without burning tokens on tool definitions.
+
+**Takeaways**
+
+- Maps every MCP operation to shell commands agents discover via `--help` — one `Bash()` tool replaces dozens of wired-up MCP functions.
+- Built-in proxy mode keeps credentials out of AI-generated code; uses OS keychain and full OAuth 2.1 (CMID + DCR).
+- 597 stars, Apify-backed, with experimental x402 agentic payments on Base — a bet that "MCP via shell" beats native MCP integrations for agent reliability.
+
+</Item>
+
+<Item
+  id="b9aa2d7c617d7a12c6f11946758c0efd9263c91d82f232a957d20bcf0dfe0b87"
+  url="https://github.com/eigenpal/docx-editor"
+  source="github"
+  title="eigenpal/docx-editor"
+  savedAt="2026-05-11T18:40:28-07:00"
+  tags={["llm-agents", "multiplayer", "typescript"]}
+>
+
+**TL;DR.** Open-source React library that drops a real `.docx` WYSIWYG editor into your browser — OOXML in, OOXML out, with tracked changes and live collaboration baked in.
+
+**Takeaways**
+
+- Pitched as "agent-ready": canonical OOXML round-trip means LLMs can edit Word docs without the usual format-mangling that breaks tracked changes.
+- 650 stars, MIT-licensed, TypeScript + Bun, with examples for Vite/Next.js/Remix/Astro and a Vue scaffold — React is the supported path, Vue is contribution-bait.
+- Plugin system via `&lt;PluginHost&gt;` (e.g. `templatePlugin`) is the extensibility story — worth a look if you want to slot AI features into a doc editor without building the OOXML plumbing yourself.
+
+</Item>
+
+<Item
+  id="c6ec872f1a9cbf85c236a38b1631ef62bcc5992b77f8a0f23b65f9f523bb83fb"
+  url="https://github.com/celltype/celltype-agent"
+  source="github"
+  title="celltype/celltype-agent"
+  savedAt="2026-05-11T18:39:16-07:00"
+  tags={["cli", "llm-agents", "python"]}
+>
+
+**TL;DR.** Claude Code for biology — an autonomous drug discovery agent that hits 90% on BixBench-Verified-50, beating every other agentic system tested.
+
+**Takeaways**
+
+- 190+ drug discovery tools (target prioritization, compound profiling, pathway enrichment) plus 30+ database APIs (PubMed, ChEMBL, UniProt, Open Targets) wired up out of the box.
+- Beats Claude Code itself (65.3%) and OpenAI Agents SDK (61.3%) on the same benchmark — the domain-specific tooling matters more than the base agent.
+- v0.2.0 offloads GPU-heavy work (ESMFold, Boltz-2, RFdiffusion, ProteinMPNN) to CellType Cloud, so you don't need local GPUs to run protein structure prediction.
+
+</Item>
+
+<Item
+  id="95e1c10e232a83157a01685ead47101bcdfb72ecc9297fd4e94ab1e54d9f67be"
+  url="https://github.com/day-ai/day-ai-sdk"
+  source="github"
+  title="day-ai/day-ai-sdk"
+  savedAt="2026-05-11T18:38:49-07:00"
+  tags={["api", "crm", "llm-agents"]}
+>
+
+**TL;DR.** TypeScript SDK that turns Day AI's CRM into a plug-and-play MCP toolkit — use it as a normal API or hand the tools straight to Claude.
+
+**Takeaways**
+
+- Two modes from one client: call methods like `search`, `createOpportunity`, `sendNotification` directly, or pipe `mcpListTools()` output into an LLM and let it drive.
+- Built around a "Business Graph" (contacts, orgs, meetings, opportunities) with tiered tool access — free tier covers search/CRM updates, higher tiers unlock pipeline analysis and batch ops.
+- Tiny project (20 stars, 11 forks, 0 open issues) but ships real example apps: desktop, mobile, Claude Agent SDK, and a community builder.
+- OAuth setup is a one-liner (`yarn oauth:setup`) that registers the client, opens the browser, and writes `.env` — token refresh is handled automatically.
+
+</Item>
+
+<Item
+  id="5d62e7a8a99dd90b159a9a4f59ab082384dd6b2660ff2c3964a66c829c668f02"
+  url="https://github.com/ourresearch/openalex-taxicab"
+  source="github"
+  title="ourresearch/openalex-taxicab"
+  savedAt="2026-05-11T18:38:21-07:00"
+  tags={["api", "docker", "python"]}
+>
+
+**TL;DR.** A tiny internal REST API from the OpenAlex team that pipes Zyte-scraped harvest data straight into S3.
+
+**Takeaways**
+
+- Python service wrapping the Zyte proxy; Dockerized with auto-deploy to AWS via GitHub Actions on push to main.
+- Built for OpenAlex's own ingestion pipeline — only 2 stars, 0 forks, no issues, so treat it as infrastructure code, not a reusable library.
+- Needs Zyte API key + S3 credentials in `.env`; smoke test hits `/test-zyte?url=...` against a DOI to verify the proxy path.
+
+</Item>
+
+<Item
+  id="187c6a7519d7346ae3bacff440615cac33409239019e97cfa74ffe25b3c7c704"
+  url="https://github.com/harbor-framework/harbor"
+  source="github"
+  title="harbor-framework/harbor"
+  savedAt="2026-05-11T18:38:01-07:00"
+  tags={["llm-agents", "python", "rl-environments"]}
+>
+
+**TL;DR.** Harbor is the Terminal-Bench creators' framework for running agent evals at scale, locally via Docker or across thousands of cloud sandboxes.
+
+**Takeaways**
+
+- Official harness for Terminal-Bench-2.0; one CLI runs Claude Code, OpenHands, Codex CLI, and other agents against SWE-Bench, Aider Polyglot, and custom benchmarks.
+- Scales from local Docker to massively parallel runs on Daytona or Modal with `--env daytona` and `--n-concurrent 100`—built for RL rollout generation, not just eval.
+- 1.9k stars, 1k forks, 319 open issues—heavy fork-to-star ratio suggests people are actively customizing it for their own benchmarks.
+
+</Item>
+
+<Item
+  id="9647b08a450e2820321356b14c26a4d83d9e488a56feb6af3c0938d4383643cd"
+  url="https://github.com/thesysdev/openui"
+  source="github"
+  title="thesysdev/openui"
+  savedAt="2026-05-11T18:37:38-07:00"
+  tags={["cli", "context-engineering", "llm-agents"]}
+>
+
+**TL;DR.** A streaming-first DSL for LLM-generated UI that's 67% more token-efficient than JSON, with a React renderer and component-library-driven prompts.
+
+**Takeaways**
+
+- OpenUI Lang lets the model emit structured UI as it streams, so React components render progressively token-by-token instead of waiting for a full JSON blob.
+- Your component library doubles as the system prompt — the model can only generate components you've registered, giving typed, controlled output.
+- 3.7k stars, MIT, ships a CLI (`npx @openuidev/cli`) and an Agent Skill aimed at AI coding assistants building generative UI.
+
+</Item>
+
+<Item
+  id="1cdbae92ab9136d6283912c1babde3cb53bf281060e739d6e45a8be06de09725"
+  url="https://github.com/charlietlamb/openlogs"
+  source="github"
+  title="charlietlamb/openlogs"
+  savedAt="2026-05-11T18:37:12-07:00"
+  tags={["cli", "llm-agents", "typescript"]}
+>
+
+**TL;DR.** A CLI wrapper that pipes your dev server's output into log files so coding agents can `tail` them and debug with real runtime context instead of guessing.
+
+**Takeaways**
+
+- Prefix any dev command (`openlogs bun run dev`) to capture both raw PTY and cleaned text logs into `.openlogs/`, with `latest.txt` always pointing at the most recent run.
+- Agents call `openlogs tail [query]` to grab the last run matching a command — no copy-pasting terminal output into chat.
+- Ships with an installable agent skill (`npx skills add`) that auto-triggers log checks during debugging; 242 stars, TypeScript, actively maintained on `master`.
+
+</Item>
+
+<Item
+  id="960e8cfb70931e03ca3c342c8efcc83af31c25496f9d80525fd6296f89f49484"
+  url="https://github.com/EveryInc/proof-sdk"
+  source="github"
+  title="EveryInc/proof-sdk"
+  savedAt="2026-05-11T18:36:50-07:00"
+  tags={["llm-agents", "multiplayer", "typescript"]}
+>
+
+**TL;DR.** Every open-sourced the engine behind Proof — a collaborative markdown editor with an HTTP bridge purpose-built for LLM agents to co-author docs with full provenance tracking.
+
+**Takeaways**
+
+- TypeScript monorepo with five packages (doc-core, doc-editor, doc-server, doc-store-sqlite, agent-bridge) plus an example app; editor on :3000, API on :4000, Node 18+.
+- For devs building human+agent document workflows who don't want to reinvent CRDTs, presence, and suggestion plumbing — MIT-licensed code with separate trademark guidance so you can fork without legal headaches.
+- The non-obvious piece is a dedicated agent bridge with first-class routes for marks, comments, suggestions, and rewrites — agents act as collaborators, not chatbots bolted onto a textarea.
+- 825 stars, 133 forks, 39 open issues — Every's `2026-03-proof-sdk-public-core` ADR suggests this is a deliberate carve-out of their hosted product, not a code dump.
+
+</Item>
+
+<Item
+  id="e2bba178f3dba3a50c0f9c0fda848366b10d8c344dad7959b99c93cd5b994218"
+  url="https://github.com/Michaelliv/pi-generative-ui"
+  source="github"
+  title="Michaelliv/pi-generative-ui"
+  savedAt="2026-05-11T18:36:29-07:00"
+  tags={["cli", "llm-agents", "macos"]}
+>
+
+**TL;DR.** Reverse-engineered Claude.ai's generative UI so the pi CLI agent streams live HTML/SVG widgets into native macOS windows instead of text blocks.
+
+**Takeaways**
+
+- Intercepts `show_widget` tool calls and pipes streaming HTML through morphdom into a Glimpse WKWebView — Chart.js, D3, and Three.js all run for real, with a `window.glimpse.send()` bridge back to the agent.
+- The 72KB of design guidelines weren't hand-written — they were extracted verbatim from claude.ai by exporting conversations as JSON and parsing the `read_me` tool payloads, then verified byte-level against the originals.
+- macOS-only, requires the Swift toolchain, 705 stars — a clever blueprint for anyone wanting Claude-quality generative UI outside the claude.ai walled garden.
+
+</Item>
+
+<Item
+  id="469e0523a881c293a02e0ab6b97cfe318b2716033dfe8e9b18270014bbe8089b"
+  url="https://github.com/RhysSullivan/executor"
+  source="github"
+  title="RhysSullivan/executor"
+  savedAt="2026-05-11T18:35:59-07:00"
+  tags={["cli", "llm-agents", "openapi"]}
+>
+
+**TL;DR.** A local daemon that turns MCP servers, OpenAPI, and GraphQL endpoints into a typed `tools.*` TypeScript catalog so agents stop YOLO-ing raw HTTP calls and shell commands.
+
+**Takeaways**
+
+- Agents write sandboxed TypeScript and call typed functions via a discover → describe → call flow, instead of stuffing massive MCP manifests into context.
+- Credentials and OAuth flows are handled by a local web UI that can pause and resume executions — secrets never enter the agent's context window.
+- Built by Rhys Sullivan (Vercel/Answer Overflow); `codemode` concept is explicitly borrowed from Cloudflare's Code Mode announcement.
+
+</Item>
+
+<Item
+  id="8a7e779d10a236d052250841b365eaa83c54c925307d71212d2129d54b3d1eb8"
+  url="https://github.com/zubanls/zuban"
+  source="github"
+  title="zubanls/zuban"
+  savedAt="2026-05-11T18:35:15-07:00"
+  tags={["python"]}
+>
+
+**TL;DR.** A Rust-built Python type checker from Jedi's author that runs 20–200× faster than Mypy with drop-in config compatibility.
+
+**Takeaways**
+
+- Two modes: PyRight-like (`zuban check`) or Mypy-compatible (`zmypy`) that reuses existing Mypy configs, flags, and error messages.
+- Full LSP support (diagnostics, completions, goto, rename, hover) plus 95%+ pass rate on Mypy's test suite — installable via `pip install zuban`.
+- Dual-licensed AGPL-3.0 or commercial; 1k stars and from David Halter, so it's a credible Mypy replacement rather than another abandoned type-checker experiment.
+
+</Item>
+
+<Item
+  id="8af78b8c5befc1a16d328b7ac8997099dc1d6dbebd46245f56080ea2850e4e1f"
+  url="https://github.com/mr-fatalyst/oxyde"
+  source="github"
+  title="mr-fatalyst/oxyde"
+  savedAt="2026-05-11T18:34:51-07:00"
+  tags={["framework-comparison", "pydantic", "python"]}
+>
+
+**TL;DR.** A type-safe async Python ORM with a Rust core that benchmarks 1.5-2x faster than SQLAlchemy, Tortoise, and Django.
+
+**Takeaways**
+
+- Django-style API (`Model.objects.filter()`) on top of Pydantic v2 models, with async-first design and Rust-powered SQL generation/execution.
+- Hits ~2,525 ops/sec on SQLite vs SQLAlchemy's 588 — nearly 4x — and beats Tortoise across PostgreSQL, MySQL, and SQLite.
+- 720 stars, MIT licensed, but explicitly "young" with an evolving API between minor versions — interesting to watch, risky to bet a production app on yet.
+
+</Item>
+
+<Item
+  id="acdf85f7082757f1973bc8d241adaf08cfba5703344e879263cef1d85e0a1cd7"
+  url="https://github.com/mr-fatalyst/fastopenapi"
+  source="github"
+  title="mr-fatalyst/fastopenapi"
+  savedAt="2026-05-11T18:34:22-07:00"
+  tags={["openapi", "pydantic", "python"]}
+>
+
+**TL;DR.** FastAPI-style OpenAPI + Pydantic v2 ergonomics, but bolted onto AioHttp, Django, Falcon, Flask, Quart, Sanic, Starlette, or Tornado.
+
+**Takeaways**
+
+- Drop-in routers (`AioHttpRouter`, `FalconRouter`, etc.) give you decorator routing, response models, and auto Swagger/ReDoc without leaving your existing framework.
+- 506 stars, MIT licensed, install per-framework via extras like `pip install fastopenapi[flask]`.
+- Useful escape hatch when you want FastAPI's DX but are stuck on a legacy Django/Flask/Tornado codebase you can't migrate.
+
+</Item>
+
+<Item
+  id="d1c18d784547228652fa732d5a8a8eda1d8009ab0daec9234e13de4c6432666a"
+  url="https://github.com/666ghj/MiroFish"
+  source="github"
+  title="666ghj/MiroFish"
+  savedAt="2026-05-11T18:33:58-07:00"
+  tags={["evolution", "llm-agents", "python"]}
+>
+
+**TL;DR.** A multi-agent "predict anything" engine that spins up thousands of personality-having NPCs in a digital sandbox to forecast how news, policies, or fictional plots will play out.
+
+**Takeaways**
+
+- Workflow: drop in seed material (news report, policy draft, novel fragment), describe what you want predicted in plain language, get back a report plus an explorable simulated world you can poke at god-mode style.
+- Stack worth noting: GraphRAG for knowledge retrieval, Zep Cloud for long-term agent memory, Python core, Docker deploy. Backed by Shanda (盛大).
+- 30k stars / 3.7k forks is suspicious for a project this young and Chinese-language-first — possible star inflation, but the demo (Wuhan University opinion simulation, Dream of the Red Chamber alternate ending) is at least concrete.
+- Pitched as both serious (policy/PR rehearsal) and toy (recursive "what if" fanfic engine) — the second use case is probably the more honest one.
+
+</Item>
+
+<Item
+  id="96eb5a5bbc10689fbeac7588f96d923998774a189c492f90d7026be955287491"
+  url="https://github.com/camel-ai/oasis"
+  source="github"
+  title="camel-ai/oasis"
+  savedAt="2026-05-11T18:33:28-07:00"
+  tags={["llm-agents", "python", "social-simulation"]}
+>
+
+**TL;DR.** Open-source sim that spins up to 1M LLM agents on a fake Twitter/Reddit to study how info, polarization, and herd behavior spread.
+
+**Takeaways**
+
+- Agents get 23 actions (post, comment, follow, mute, repost…) plus interest- and hot-score-based recommenders, so you can stress-test feed algorithms, not just chat behavior.
+- 4.5k stars, Apache 2.0, pip-installable, OpenAI-compatible — but the headline "1M agents" comes with real token bills; the repo publishes consumption references for a reason.
+- From CAMEL-AI (paper: arXiv 2411.11581); useful if you care about content-creation experiments, social prediction, or auditing recsys-driven polarization at scale.
+
+</Item>
+
+<Item
+  id="bb4a241a903725ec118168c232c592b6c7fbfe39a1ecf1ecfe34292f6af62ae5"
+  url="https://github.com/uditgoenka/autoresearch"
+  source="github"
+  title="uditgoenka/autoresearch"
+  savedAt="2026-05-11T18:32:35-07:00"
+  tags={["cli", "coding", "llm-agents"]}
+>
+
+**TL;DR.** A Claude Code/OpenCode/Codex skill that runs Karpathy-style autonomous loops — modify, verify against a mechanical metric, keep or rollback, repeat until you wake up to compounding gains.
+
+**Takeaways**
+
+- Eight-rule discipline: atomic changes, mechanical (not vibes-based) verification, automatic rollback of failed experiments, git-as-memory so dead ends stay in history.
+- Ships a full command suite beyond the core loop — `/autoresearch:plan`, `:debug`, `:fix`, `:security` (STRIDE/OWASP red-team), `:ship`, plus scenario/predict/learn/reason variants.
+- 3.3k stars, MIT, multi-agent support (Claude Code, OpenCode, Codex) — niche but punching above its weight; the bet is that you can define a measurable goal, not that the agent is smart.
+
+</Item>
+
+<Item
+  id="66a5ad082e9ee9d5c91b3944832c6d8ad5bbaa140c27f9ae2cfcaf81ae1e0ca8"
+  url="https://github.com/chenxin-yan/crust"
+  source="github"
+  title="chenxin-yan/crust"
+  savedAt="2026-05-11T18:32:11-07:00"
+  tags={["cli", "llm-agents", "typescript"]}
+>
+
+**TL;DR.** A TypeScript-first, Bun-native CLI framework with composable modules for command routing, prompts, validation, and persistence.
+
+**Takeaways**
+
+- `bun create crust my-cli` scaffolds a new CLI; modular packages let you pick only what you need (`@crustjs/core`, `@crustjs/prompts`, `@crustjs/store`, etc.).
+- `@crustjs/skills` is the interesting bit — generates agent skills directly from command definitions, bridging CLI tools and LLM agents.
+- 382 stars, 9 open issues, used in production by Nia CLI (Nozomio Labs) — small but real.
+
+</Item>
+
+<Item
+  id="a63dc2cdfb2fc9e066202a580047ccbe717ed99e40a79c4051ebcc7a601cc653"
+  url="https://github.com/DannyMac180/ace-platform"
+  source="github"
+  title="DannyMac180/ace-platform"
+  savedAt="2026-05-11T18:31:46-07:00"
+  tags={["cli", "context-engineering", "llm-agents"]}
+>
+
+**TL;DR.** Open-source platform that turns one-off AI prompts into self-improving playbooks by recording what worked and what didn't across real agent runs.
+
+**Takeaways**
+
+- Plugs into MCP clients (Claude Code, Codex, custom) so playbooks travel with whatever agent you're already using.
+- Splitting into ACE OSS (local, BYO keys, self-hostable via Docker Compose) and ACE Cloud (hosted sync, team workspaces, enterprise governance).
+- Early but real traction: 152 stars, 11 forks, MIT-licensed, Python, active CI — the bet is "prompts as evolving artifacts" instead of disposable text.
+
+</Item>
+
+<Item
+  id="f7395ca2d1b3c203e44d538d465b8117e37d5f1249b76c04b3cf3a31213616ce"
+  url="https://github.com/ace-agent/ace"
+  source="github"
+  title="ace-agent/ace"
+  savedAt="2026-05-11T18:31:21-07:00"
+  tags={["cli", "context-engineering", "evolution"]}
+>
+
+**TL;DR.** ACE turns your LLM's context window into a self-editing playbook — three roles (Generator, Reflector, Curator) accumulate strategies via delta updates instead of rewrites, beating baselines by ~10% with 87% less adaptation latency.
+
+**Takeaways**
+
+- Core trick: incremental delta edits to a structured "playbook" context avoid the brevity bias and context collapse that plague full-rewrite approaches.
+- Self-supervised — learns from execution feedback, no labels needed. Reports matching GPT-4.1 on AppWorld using a smaller open-source model.
+- 1k+ stars, fresh (Nov 2025 paper drop), Python. Extending to a new task means implementing a `DataProcessor` with process/check/eval methods.
+
+</Item>
+
+<Item
+  id="637c99109af31ed2fe7b7d57775d6cc3a4eeaed82d44b5e5d708272fd74606cb"
+  url="https://github.com/mattpocock/skills"
+  source="github"
+  title="mattpocock/skills"
+  savedAt="2026-05-11T18:30:54-07:00"
+  tags={["cli", "coding", "llm-agents"]}
+>
+
+**TL;DR.** Matt Pocock's `.claude` skills directory, opened up — PRD interviews, TDD loops, and git guardrails as plug-in agent recipes.
+
+**Takeaways**
+
+- Nine skills spanning planning (write-a-prd, grill-me), dev (tdd, triage-issue, improve-codebase-architecture), and Claude Code hooks that block dangerous git commands before they fire.
+- Includes a meta `write-a-skill` skill — useful template if you're building your own skill library with progressive disclosure.
+- 1.8k stars, 175 forks, only 2 open issues — punchy reference implementation from a well-known TS educator, not a sprawling framework.
+
+</Item>
+
+<Item
+  id="c0b22805f73d10c24fddd41aeaa956e5ff2422a35551adedbe4f0b2d4cf5f0ee"
+  url="https://github.com/y-crdt/y-crdt"
+  source="github"
+  title="y-crdt/y-crdt"
+  savedAt="2026-05-11T18:30:32-07:00"
+  tags={["browser", "coding", "multiplayer"]}
+>
+
+**TL;DR.** Rust port of Yjs that gives every language (Python, Ruby, Swift, .NET, Kotlin, C, WASM) a wire-compatible CRDT engine for real-time collaborative apps.
+
+**Takeaways**
+
+- Core is `yrs` in Rust, with `yffi` (C FFI) and `ywasm` (WebAssembly/JS) wrappers — bindings in other languages all build on top, so docs interop with JS Yjs over the wire.
+- Supports the full Yjs data model: YText with formatting/embeds, YMap, YArray, XML elements, and sub-documents; weak links and recursive nesting exist in core but lag in some bindings.
+- 2k stars, 109 open issues, actively tracking Yjs 13.6 — solid pick if you want CRDTs outside the JS ecosystem without forking the protocol.
+
+</Item>
+
+<Item
+  id="c32ea64b85ff002307e73a8196b7befaa5c15402c409b0eb16cc55c44918a1af"
+  url="https://github.com/rivet-dev/antiox"
+  source="github"
+  title="rivet-dev/antiox"
+  savedAt="2026-05-11T18:30:04-07:00"
+  tags={["llm-agents", "typescript"]}
+>
+
+**TL;DR.** Tokio-style structured concurrency primitives for TypeScript — channels, tasks, select, and oneshot — so you stop hand-rolling Promise.all + AbortController spaghetti.
+
+**Takeaways**
+
+- Pairs channels with spawned tasks to build actor-like systems with backpressure and clean shutdown, no callbacks or event emitters.
+- API mirrors Rust's Tokio (mpsc, oneshot, select, mutex, semaphore), which means LLMs already know how to write it.
+- 214 stars, zero dependencies, tree-shakeable modules (~1.4 KB gzipped each); pre-release API but already in production at Rivet.
+
+</Item>
+
+<Item
+  id="3c67eebdc1af95ef7e15e62149e2f36a4ce5d4266019a2b332b284d0dbcdc2d8"
+  url="https://github.com/chenglou/pretext"
+  source="github"
+  title="chenglou/pretext"
+  savedAt="2026-05-11T18:29:39-07:00"
+  tags={["canvas", "multiline-layout", "text-measurement"]}
+>
+
+**TL;DR.** A pure JS/TS library that measures multiline text height and lays out lines without ever touching the DOM — skipping the browser's most expensive reflow operation.
+
+**Takeaways**
+
+- Two APIs: `prepare`/`layout` for height-only measurement (~0.09ms hot path after a ~19ms prepare on a 500-text batch), and `prepareWithSegments`/`layoutWithLines` for manual line-by-line rendering to Canvas/WebGL/SVG.
+- Unlocks proper virtualization without guesstimates, masonry/JS-driven layouts, AI-verifiable label overflow checks, and scroll anchoring on async text loads.
+- Handles emojis, mixed-bidi, and quirky browsers, but doesn't yet support `system-ui` font on macOS or advanced CSS text props — targets standard `white-space: normal` / `pre-wrap` setups.
+- 10.8k stars on a niche infra library from chenglou (ex-React core) — strong signal this is solving a real pain point for perf-sensitive web UIs.
+
+</Item>
+
+<Item
+  id="63b520fcc98d3bf88f71b8c3477b0ea888683ba4397bc87c2f2b990d81f75f0b"
+  url="https://github.com/10xapp/core-oss"
+  source="github"
+  title="10xapp/core-oss"
+  savedAt="2026-05-11T18:29:10-07:00"
+  tags={["llm-agents"]}
+>
+
+**TL;DR.** Open-source monorepo cloning Notion/Linear/Slack/Gmail into one FastAPI+React app, with Gmail/Outlook/Google/Microsoft sync and an AI chat that can search your email.
+
+**Takeaways**
+
+- All-in-one productivity stack: email, calendar, chat, messages, files, TipTap docs, Kanban projects, and a unified dashboard — for people who want to self-host their "everything app."
+- Heavy Supabase dependency: Postgres + RLS + Auth + Realtime all ride on Supabase, so you're not really escaping a vendor, just swapping one.
+- 361 stars / 46 forks — early but real; stack is bleeding-edge (React 19, Vite 7, Tailwind 4, Python 3.12, `uv`) and deploys to Vercel + Cloudflare R2.
+
+</Item>
+
+<Item
+  id="cc8131aaa30af4640853c722bf6a25997214c1fa833f65d513b4577115639228"
+  url="https://github.com/sindresorhus/is"
+  source="github"
+  title="sindresorhus/is"
+  savedAt="2026-05-11T18:28:45-07:00"
+  tags={["typescript"]}
+>
+
+**TL;DR.** TypeScript-first type checker from sindresorhus with type guards, assertions, and 100+ predicates covering everything from `NaN` to Node streams.
+
+**Takeaways**
+
+- Goes far beyond `typeof`: handles Maps, Sets, promises, generators, typed arrays, DOM elements, and Node streams — and treats `NaN` as not-a-number on purpose.
+- Ships type assertions (`assert.string(foo)`) that narrow types in TS and throw with custom messages — handy for validating env vars and API inputs.
+- Named exports enable tree-shaking, so you only pay for the checks you import; 1.7k stars, millions of weekly downloads, actively maintained.
+
+</Item>
+
+<Item
+  id="7e5f340e1e23109bb01f462282a1818b129da25e622809f6b816e6c8cd3a8868"
+  url="https://github.com/kropdx/unofficial-claude-code-prompt-playbook"
+  source="github"
+  title="kropdx/unofficial-claude-code-prompt-playbook"
+  savedAt="2026-05-11T18:28:17-07:00"
+  tags={["coding", "llm-agents"]}
+>
+
+**TL;DR.** Treat production prompts like an OS—layered policy, runtime context, tool schemas, and verifier gates—not a clever paragraph.
+
+**Takeaways**
+
+- Reverse-engineered patterns from Claude Code's prompt architecture, packaged as reusable blocks: roles, operating policy, tool policy, memory, format contracts, trust boundaries.
+- Core moves: separate static policy from dynamic context, isolate retrieved evidence from trusted input, add anti-rationalization rules, and use adversarial verifier agents.
+- 267 stars, includes a podcast companion (.m4a) and a gold-standard XML system-prompt skeleton you can fork for coding agents, RAG analysts, and orchestrators.
+
+</Item>
+
+<Item
+  id="f0f18dad2cb6660e5c7cdc97a6cd53baa0da1152b7b23f70261d78474924c89f"
+  url="https://github.com/imputnet/helium"
+  source="github"
+  title="imputnet/helium"
+  savedAt="2026-05-11T18:27:55-07:00"
+  tags={["browser", "c", "privacy"]}
+>
+
+**TL;DR.** Helium is a privacy-first Chromium fork with built-in ad-blocking, built on ungoogled-chromium and aimed at people who want a clean browser without the Google plumbing.
+
+**Takeaways**
+
+- Ships a forked uBlock Origin baked in, plus patches cherry-picked from Bromite, Brave, Inox, and Iridium — basically a greatest-hits of privacy Chromiums.
+- Still beta, but already 15.7k stars; macOS is the primary dev target, with Linux and Windows builds available at helium.computer.
+- GPL-3.0 for Helium's own code; imported patches keep their original licenses, so it's a genuinely open alternative to Brave/Arc without the crypto baggage.
+
+</Item>
+
+<Item
+  id="c06aaae7b572bcad23810f202f1d8c8b6bf2c96381d415d0338df5966dd1273c"
+  url="https://github.com/Yeachan-Heo/oh-my-codex"
+  source="github"
+  title="Yeachan-Heo/oh-my-codex"
+  savedAt="2026-05-11T18:27:33-07:00"
+  tags={["cli", "coding", "llm-agents"]}
+>
+
+**TL;DR.** A workflow layer that wraps OpenAI's Codex CLI with hooks, agent teams, and HUD-style runtime help via commands like `$deep-interview`, `$ralplan`, `$team`, and `$ralph`.
+
+**Takeaways**
+
+- Doesn't replace Codex — it boots stronger sessions and runs one consistent flow from clarification to plan approval to execution, with all state stored in `.omx/`.
+- 26.6k stars, 2.2k forks, only 13 open issues — heavy traction and tight maintenance, MIT licensed, TypeScript.
+- macOS/Linux + Codex CLI is the supported path; native Windows and the Codex App "may break" and get less support.
+
+</Item>
+
+<Item
+  id="fea391099ff8f89e0c9b511c4966a4f9b6b3763d880e1cbb52be4c728b123e6e"
+  url="https://github.com/yc-software/recruiting"
+  source="github"
+  title="yc-software/recruiting"
+  savedAt="2026-05-11T18:27:02-07:00"
+  tags={["llm-agents", "task-management"]}
+>
+
+**TL;DR.** YC open-sourced its in-house Claude Code recruiting co-pilot that runs the entire hiring loop — sourcing, outreach, scheduling, pipeline — over Gmail, Calendar, Ashby, and Work at a Startup.
+
+**Takeaways**
+
+- Natural-language commands like "triage" pull from inbox + ATS + WAAS + calendar in one pass and categorize everything; "schedule her with Jane Thursday 9:30" actually books it.
+- Built as a bundle of Claude Code Skills wired to MCP servers (WAAS, Ashby, Gmail, Calendar) — a concrete reference architecture for anyone building agentic ops tooling.
+- YC explicitly warns it's not for spamming candidates ("from the data we have, that doesn't work") — the pitch is reclaiming time for judgment, not automating judgment itself.
+- Tiny footprint (40 stars, 0 issues, 1 fork) but it's the tool YC uses internally, and the repo doubles as a recruiting post for YC's software team.
+
+</Item>
+
+<Item
+  id="135853cec1c669475ff8e5904b29622dbe2213af043f88eb81fb05de90083f27"
+  url="https://github.com/snarktank/clawchief"
+  source="github"
+  title="snarktank/clawchief"
+  savedAt="2026-05-11T18:26:33-07:00"
+  tags={["chief-of-staff", "cli", "coding"]}
+>
+
+**TL;DR.** An OpenClaw starter kit that turns your coding agent into a chief-of-staff with a markdown source-of-truth for priorities, tasks, and meeting notes.
+
+**Takeaways**
+
+- Separates concerns into distinct layers: priority map, auto-resolver policy, meeting-note ingestion, live tasks, and archive — the architecture is the lesson.
+- Ships executive-assistant and business-development skills plus cron templates for recurring heartbeat orchestration.
+- 1k+ stars in short order; inspired by Pedro Franceschi's setup from the Core Memory podcast, with Ryan Carson's launch post as the origin story.
+
+</Item>
+
+<Item
+  id="8035fdea0411038b08596554ab1f4556f7587460ea494a5d3a79796289657b74"
+  url="https://github.com/kevinrgu/autoagent"
+  source="github"
+  title="kevinrgu/autoagent"
+  savedAt="2026-05-11T18:26:09-07:00"
+  tags={["coding", "llm-agents"]}
+>
+
+**TL;DR.** Autoresearch-style hill climbing, but the thing being optimized is the agent harness itself — meta-agent edits `agent.py`, runs benchmarks, keeps what scores higher.
+
+**Takeaways**
+
+- Human writes the directive in `program.md`; meta-agent owns the Python harness (prompts, tools, orchestration) and iterates overnight against Harbor task suites.
+- Single-file `agent.py` is the editable surface, with a fixed Harbor adapter boundary — clean separation so the meta-agent can't break the eval rig.
+- 759 stars, built by thirdlayer.inc as a teaser for a forthcoming self-configuring-agents product; requires Docker + uv + your own model API keys.
+
+</Item>
+
+<Item
+  id="c594783802dcee4a0f301c626f08c52aa53e70e76f48f20d59bc42527bed1618"
+  url="https://github.com/hdresearch/vers-cli"
+  source="github"
+  title="hdresearch/vers-cli"
+  savedAt="2026-05-11T18:25:41-07:00"
+  tags={["cli", "coding"]}
+>
+
+**TL;DR.** Git-style version control for VMs and containers — commit, branch, and tag your dev environments like code.
+
+**Takeaways**
+
+- Go CLI that treats VM/container snapshots as commits with branches, tags, and a parent-chain history; targets devs who want reproducible, forkable sandboxes.
+- Ships an experimental MCP server so agents like Claude Desktop can drive `vers` operations as tools — natural fit for AI-driven dev workflows.
+- Early-stage: 15 stars, 17 open issues, but the design is unusually thoughtful (durable job ledger, local feedback journal, `-q` flag for Unix piping).
+
+</Item>
+
+<Item
+  id="999a3d5aadd19ce83e9b7afcd8e11603877d934d19ad05b36e0c66527e00da0f"
+  url="https://github.com/ankitvgupta/exo"
+  source="github"
+  title="ankitvgupta/exo"
+  savedAt="2026-05-11T18:25:14-07:00"
+  tags={["llm-agents", "macos", "typescript"]}
+>
+
+**TL;DR.** Open-source macOS email client that pre-triages your Gmail and drafts replies in your voice before you open the thread.
+
+**Takeaways**
+
+- Electron/React/TypeScript client where Claude analyzes every incoming email, assigns priority, and pre-generates drafts in the background — ships as a downloadable .dmg.
+- Cmd+J agent palette + memory system that learns from your draft edits and classification overrides, with MCP server support for plugging in custom tools.
+- BYOK setup (Gmail API + Anthropic key); 427 stars, 71 forks, actively developed — closest thing to "Claude Code for inbox" as a real shippable app.
+
+</Item>
+
+<Item
+  id="a6020c31a78054497c3951b80b8182544ac2992c7d850bc1e441036e1b1ab053"
+  url="https://github.com/afar1/fieldtheory-cli"
+  source="github"
+  title="afar1/fieldtheory-cli"
+  savedAt="2026-05-11T18:24:18-07:00"
+  tags={["cli", "llm-agents", "macos"]}
+>
+
+**TL;DR.** A free Mac CLI that yanks your X bookmarks into a local SQLite index so Claude Code (or any shell agent) can actually search and reason over them.
+
+**Takeaways**
+
+- `ft sync` scrapes bookmarks straight from your Chrome session — no X API key needed, with optional OAuth mode for cross-platform sync.
+- Stores everything as JSONL + SQLite FTS5 at `~/.ft-bookmarks/`, with LLM or regex classification into buckets like tool/security/research/launch.
+- 750 stars, TypeScript, Node 20+; designed to be cron'd (`0 7 * * * ft sync --classify`) and pointed at agents with prompts like "what have I bookmarked about cancer research?"
+
+</Item>
+
+<Item
+  id="9190917d822f55e56a479c466d9f74e77184fa7d03a2ecb89c38aa8e4b9dd660"
+  url="https://github.com/0xGF/boneyard"
+  source="github"
+  title="0xGF/boneyard"
+  savedAt="2026-05-11T18:23:51-07:00"
+  tags={["cli", "coding", "typescript"]}
+>
+
+**TL;DR.** A headless browser snapshots your real `&lt;Skeleton&gt;` components to auto-generate pixel-perfect loading placeholders — no hand-tuned divs.
+
+**Takeaways**
+
+- Wrap content in `&lt;Skeleton name="..."&gt;` and run `npx boneyard-js build` (or use the Vite plugin); it captures layout at multiple breakpoints into a shared `.bones.json` format.
+- Works across React, Preact, Vue, Svelte 5, Angular, and React Native — RN version walks the fiber tree and measures via `UIManager` in dev, zero overhead in prod.
+- 5.5k stars, only 3 open issues — small surface, focused tool. Dynamic Type support auto-scales bones to the user's font size setting at runtime.
+
+</Item>
+
+<Item
+  id="d055b7c5289bc4c15e0d4eb554ddc6160ae76c6a969bcecbebef251cc91c275d"
+  url="https://github.com/earendil-works/absurd"
+  source="github"
+  title="earendil-works/absurd"
+  savedAt="2026-05-11T18:23:24-07:00"
+  tags={["framework-comparison", "llm-agents"]}
+>
+
+**TL;DR.** A durable execution workflow system that's just one SQL file on Postgres—no Temporal, no Inngest, no extra services.
+
+**Takeaways**
+
+- Pull-based workers replay step checkpoints to survive crashes with "exactly-once" semantics; supports retries, scheduling, and event-waiting.
+- Drop-in install: apply `absurd.sql` to Postgres, pick your SDK (TypeScript, Python, experimental Go), use `absurdctl` + `habitat` UI to manage queues.
+- 1.7k stars, Apache-2.0, built partly with AI assistance—pitched as the anti-overengineered alternative to Temporal/Cadence/DBOS for LLM agents and long-running jobs.
+
+</Item>
+
+<Item
+  id="f9df08c201fdc4c723f480f6be32ab5f9f8d9424ca4d0a3f86318a749c9680b2"
+  url="https://github.com/VoltAgent/awesome-design-md"
+  source="github"
+  title="VoltAgent/awesome-design-md"
+  savedAt="2026-05-11T18:19:14-07:00"
+>
+
+**TL;DR.** Drop-in DESIGN.md files extracted from 55+ popular sites so AI coding agents can generate pixel-perfect UI matching real brands.
+
+**Takeaways**
+
+- Plain-markdown design system format (from Google Stitch) covering color, typography, components, layout, elevation, and responsive rules — no Figma or JSON tooling needed.
+- Curated by industry (AI, devtools, infra, fintech, etc.) with each entry shipping a DESIGN.md plus light/dark preview.html catalogs.
+- 649 stars, MIT-licensed, actively taking contributions — values are scraped from public CSS, so treat them as "as is" rather than authoritative brand guidelines.
+
+</Item>
+
+<Item
+  id="b48531fff53cb23e309fc9543d8067aa183af5e9d41854844e71931e723019fa"
+  url="https://github.com/Yeachan-Heo/oh-my-claudecode"
+  source="github"
+  title="Yeachan-Heo/oh-my-claudecode"
+  savedAt="2026-05-11T18:18:51-07:00"
+  tags={["cli", "coding", "llm-agents"]}
+>
+
+**TL;DR.** Plugin for Claude Code that orchestrates 32 specialized agents into staged pipelines, so you stop learning Claude Code and just say "autopilot: build X.".
+
+**Takeaways**
+
+- Team mode replaces the old `swarm` keyword (v4.1.7+) and runs a fixed pipeline: plan → PRD → exec → verify → fix-loop, with tmux workers for Codex/Gemini in v4.4.0+.
+- 12.5k stars, MIT, TypeScript — installs as a Claude Code marketplace plugin (`/plugin install`), not a standalone CLI, so it's tightly coupled to CC's agent-teams experimental flag.
+- `/deep-interview` does Socratic requirements-gathering before code is written — useful counter to the usual "just vibe-code it" failure mode.
+
+</Item>
+
+<Item
+  id="10cf1e6f84a5dcf419d6be4b48c467db15259dc21a073134569bf3a89a508efc"
+  url="https://github.com/dzhng/crm.cli"
+  source="github"
+  title="dzhng/crm.cli"
+  savedAt="2026-05-11T18:18:29-07:00"
+  tags={["cli", "crm", "llm-agents"]}
+>
+
+**TL;DR.** A headless CRM that lives in one SQLite file, mountable as a filesystem so Claude Code or any tool that reads files gets full CRM access with zero integration.
+
+**Takeaways**
+
+- Built for technical founders/indie hackers doing BD who currently grep a spreadsheet — no server, no Docker, no GUI, just `npm install -g`.
+- Killer idea: `crm mount ~/crm` exposes contacts as files, making the filesystem the universal API (no MCP server, no API keys needed for agents).
+- Real normalization layer justifies it over a CSV: E.164 phone formatting, LinkedIn URL → handle extraction, fuzzy duplicate detection, entity merge with reference relinking.
+- Tiny project (26 stars, 0 forks, TypeScript) sponsored by Duet — early but the filesystem-as-API angle is the interesting bet.
+
+</Item>
+
+<Item
+  id="dc1245866190dc029ad36165a91c32d51c08bc3b858f467d65f192180d62bc94"
+  url="https://github.com/MemPalace/mempalace"
+  source="github"
+  title="MemPalace/mempalace"
+  savedAt="2026-05-11T18:18:00-07:00"
+  tags={["cli", "coding", "llm-agents"]}
+>
+
+**TL;DR.** Local-first AI memory system hitting 96.6% retrieval recall on LongMemEval with zero API calls, zero cloud, zero LLM.
+
+**Takeaways**
+
+- Stores conversations verbatim (no summarization) in a structured "palace" — wings for people/projects, rooms for topics, drawers for content — so search is scoped, not flat.
+- Pluggable backend (ChromaDB default), MCP server with 29 tools, auto-save hooks for Claude Code, and a SQLite-backed temporal knowledge graph.
+- 52k stars but a loud scam-alert at the top: only trust the GitHub repo, PyPI package, and mempalaceofficial.com — `mempalace.tech` is an impostor distributing malware.
+- Hybrid v4 pipeline pushes recall to 98.4% with just keyword + temporal heuristics; LLM rerank gets above 99%.
+
+</Item>
+
+<Item
+  id="5f8e829d5028a597beb46c92ef8f62a9ca069805f8bd61fbf9d5a9772df7a5e0"
+  url="https://github.com/agno-agi/dash"
+  source="github"
+  title="agno-agi/dash"
+  savedAt="2026-05-11T18:17:33-07:00"
+  tags={["cli", "coding", "llm-agents"]}
+>
+
+**TL;DR.** A self-learning SQL agent that grounds answers in 6 layers of context (schema, annotations, query patterns, institutional knowledge, learnings, runtime) and patches its own mistakes after every failed query.
+
+**Takeaways**
+
+- Dual-schema safety model: `public` is read-only company data, `dash` is the agent's sandbox for views and computed tables — agents physically can't corrupt source data.
+- Self-learning loop diagnoses failed queries and saves the fix, so the same mistake doesn't repeat. This is the core differentiator vs. generic text-to-SQL.
+- 2k+ stars, from the Agno team. Ships with Docker Compose for local dev and Railway scripts for prod; chat via Slack, terminal, or AgentOS web UI.
+
+</Item>
+
+<Item
+  id="904533af629f3aa53b9f095e39364ada131f188008be35c354c3b51735e9851b"
+  url="https://github.com/marimo-team/marimo-pair"
+  source="github"
+  title="marimo-team/marimo-pair"
+  savedAt="2026-05-11T18:17:09-07:00"
+  tags={["cli", "coding", "llm-agents"]}
+>
+
+**TL;DR.** Drop coding agents directly into a live marimo notebook so they can run reactive Python cells alongside you.
+
+**Takeaways**
+
+- Ships as an Agent Skills package (works with any compliant agent) plus a first-class Claude Code plugin via `/plugin marketplace add marimo-team/marimo-pair`.
+- Just shell scripts + `curl`/`jq` hitting a running marimo server — no SDK, no MCP, just `discover-servers.sh` and `execute-code.sh`.
+- 279 stars and growing; pair with the settings.json allowlist trick to stop Claude Code from prompting on every Bash call.
+
+</Item>
+
+<Item
+  id="2a02efab2f63940b501b73fccf530f080633d16c10fc1dcc6856f460fb9e66bc"
+  url="https://github.com/benchflow-ai/skillsbench"
+  source="github"
+  title="benchflow-ai/skillsbench"
+  savedAt="2026-05-11T18:16:42-07:00"
+  tags={["llm-agents"]}
+>
+
+**TL;DR.** A gym-style benchmark for evaluating how well AI agents compose multiple "skills" — modular folders of instructions and scripts — with SOTA target success rate under 50%.
+
+**Takeaways**
+
+- Built by BenchFlow to test skill effectiveness *and* agent behavior, targeting Claude Opus 4.5, GPT-5.2, MiniMax M2.1, and GLM-4.7.
+- 1.1k stars, Apache 2.0, written mostly in PDDL — uses `uv` for reproducible runs and ships an oracle agent baseline.
+- Tasks deliberately require composing 2+ skills; four credential-gated tasks are quarantined in `tasks_excluded/` behind an opt-in flag.
+
+</Item>
+
+<Item
+  id="3845e6543ec30d88bed6375714eec79e74fe38202e83be3addd3da6b66505212"
+  url="https://github.com/halfwhey/claudraband"
+  source="github"
+  title="halfwhey/claudraband"
+  savedAt="2026-05-11T18:16:02-07:00"
+  tags={["cli", "llm-agents", "typescript"]}
+>
+
+**TL;DR.** A TypeScript wrapper that keeps Claude Code TUI sessions alive, resumable, and drivable via daemon, ACP, or HTTP — `claude -p` with session support.
+
+**Takeaways**
+
+- Solves the "claude -p has no memory" problem: `cband prompt --session &lt;id&gt;` resumes non-interactive workflows, plus watch/interrupt/answer-prompt commands.
+- Built for power users who want headless or remote Claude Code — exposes an HTTP daemon, an ACP server for Zed/Toad integration, and a Docker image with a mounted account bundle.
+- Doesn't touch OAuth or bypass the TUI — bundles `@anthropic-ai/claude-code@2.1.96` and drives a real session via `tmux`; explicitly not a Claude SDK replacement.
+- Early but real: 279 stars, experimental xterm.js headless fallback, and runnable TypeScript examples in the repo.
+
+</Item>
+
+<Item
+  id="f1a85359c387725994997ff63e08183e406fa670ced57d48280bc4119921dad0"
+  url="https://github.com/vercel-labs/wterm"
+  source="github"
+  title="vercel-labs/wterm"
+  savedAt="2026-05-11T18:15:32-07:00"
+  tags={["cli", "coding", "typescript"]}
+>
+
+**TL;DR.** A browser terminal emulator that renders to the DOM (not canvas), giving you native selection, copy/paste, and a11y for free — powered by a 12KB Zig/WASM core.
+
+**Takeaways**
+
+- DOM rendering over canvas is the bet: free text selection, clipboard, browser find, and screen reader support without reinventing them.
+- Pluggable cores let you pick ~12KB lightweight Zig or ~400KB libghostty for full VT compliance; ships React, Vue, and vanilla JS bindings.
+- 2.9k stars from Vercel Labs, Apache-2.0 — includes WebSocket PTY transport and an in-browser Bash package, so it's a real building block, not just a demo.
+
+</Item>
+
+<Item
+  id="4749bc3c8bb5a9ae8508d860f0296ef9a965405e91ab66556e7e8fbc151f37ed"
+  url="https://github.com/pipecat-ai/gradient-bang"
+  source="github"
+  title="pipecat-ai/gradient-bang"
+  savedAt="2026-05-11T18:15:01-07:00"
+  tags={["game", "llm-agents", "multiplayer"]}
+>
+
+**TL;DR.** Multiplayer space game where every entity — including your own ship — is an AI agent, built to showcase realtime agentic workflows.
+
+**Takeaways**
+
+- Pipecat's flagship demo for low-latency voice + multi-tasking tool-calling agents in a live game loop, not a toy chatbot.
+- Stack is unusually opinionated: Supabase (Postgres + Edge Functions) as the game server, PL/pgSQL functions auto-resolving combat rounds server-side.
+- 373 stars, active — includes a `/init` Claude Code skill that bootstraps the whole local stack (Supabase, world gen, env files) in one command.
+
+</Item>
+
+<Item
+  id="863f3ebb4e2236292d65bd7ac1694ead11eb849ce6acda5798f0470b8b0fc007"
+  url="https://github.com/evo-hq/evo"
+  source="github"
+  title="evo-hq/evo"
+  savedAt="2026-05-11T18:14:39-07:00"
+  tags={["cli", "coding", "llm-agents"]}
+>
+
+**TL;DR.** A plugin that turns Claude Code/Codex into an autonomous code optimizer — tree search with parallel subagents in git worktrees, hill-climbing your benchmark until the score stops moving.
+
+**Takeaways**
+
+- Built on Karpathy's autoresearch idea but swaps the single-branch greedy hill climb for tree search with configurable frontier selection (argmax, top-K, ε-greedy, softmax, GEPA-style Pareto).
+- Two skills: `discover` instruments the benchmark for you; `optimize` runs the parallel experiments with shared failure traces, regression gating, and a dashboard.
+- 613 stars, Python, works across Claude Code, Codex, OpenClaw, and Hermes — install via `/plugin marketplace add evo-hq/evo` or the `evo-hq-cli` uv/pipx package.
+
+</Item>
+
+<Item
+  id="c52994ce52ad045070c4bdd459e5bd3124f9895b454332d8143a254b424134c9"
+  url="https://github.com/jigish/slate"
+  source="github"
+  title="jigish/slate"
+  savedAt="2026-05-11T18:14:14-07:00"
+  tags={["coding", "macos", "window-manager"]}
+>
+
+**TL;DR.** Slate is a free, hyper-configurable macOS window manager that replaces Divvy/SizeUp with keystroke-bound moves, resizes, layouts, and snapshots.
+
+**Takeaways**
+
+- Config lives in a `.slate` (or `.slate.js` for JavaScript) file in your home directory, with directives like `bind`, `layout`, `default`, and `alias` — powerful but daunting to set up.
+- Default layouts auto-activate on monitor/resolution changes, and Window Hints offer a fast keyboard-driven way to refocus windows.
+- 7.8k stars but the project is dormant (Objective-C, last meaningful activity years ago) — fine if you want a hackable config-as-code tool, but modern alternatives like yabai or Rectangle are more actively maintained.
+
+</Item>
+
+<Item
+  id="670db0464bc043b9845b3a1c28d27ecbce8ec8eb1e63000abb18ea694686e8cc"
+  url="https://github.com/intertwine/dspy-agent-skills"
+  source="github"
+  title="intertwine/dspy-agent-skills"
+  savedAt="2026-05-11T18:13:47-07:00"
+  tags={["cli", "coding", "llm-agents"]}
+>
+
+**TL;DR.** A five-skill pack that turns Claude Code and Codex CLI into DSPy 3.1.x experts, covering signatures, evaluation, GEPA optimization, and RLM long-context QA.
+
+**Takeaways**
+
+- Auto-invoking skills span the full DSPy lifecycle — fundamentals, eval harness, GEPA compile, RLM, and an orchestrator that chains them end-to-end.
+- Built as a correction to earlier drafts with wrong import paths and deprecated APIs; every claim is grounded in DSPy 3.1.3 source, with 34 validation tests enforcing spec compliance.
+- One-command install symlinks into both `~/.claude/skills/` and `~/.agents/skills/`; examples run offline via `--dry-run` so you can audit without burning API credits.
+- Tiny repo (1 star, 0 forks) — early but unusually disciplined: progressive disclosure, plugin manifest, marketplace install, and a CHANGELOG documenting what the previous version got wrong.
+
+</Item>
+
+<Item
+  id="138695fb5fcce586ad27ce988758b5edab280eb86afd8ba8a7e9d0d2057d59b1"
+  url="https://github.com/openprose/prose"
+  source="github"
+  title="openprose/prose"
+  savedAt="2026-05-11T18:13:22-07:00"
+  tags={["cli", "llm-agents"]}
+>
+
+**TL;DR.** A Markdown-based "programming language" where `*.prose.md` contracts declare intent and the agent itself becomes the interpreter — spawning subagents, wiring services, and leaving auditable run receipts.
+
+**Takeaways**
+
+- Contracts use `### Requires` / `### Ensures` sections; the agent figures out the "how" while the runtime versions and audits workflows like real code.
+- Two execution modes: a bounded VM for one-shot activations, and a Responsibility Runtime (`prose compile`, `prose serve`) for standing goals that must remain true over time.
+- 1.2k stars, TypeScript, install via `npx skills add openprose/prose` — explicitly tells agents to stop and fail rather than fake missing capabilities like subagent spawning.
+
+</Item>
+
+<Item
+  id="f9160448031dea3dfb0e5f842d459ad7b8b5789d7aa11e37f896ab16ec5d3283"
+  url="https://github.com/CyrusNuevoDia/fastactor"
+  source="github"
+  title="CyrusNuevoDia/fastactor"
+  savedAt="2026-05-11T18:12:45-07:00"
+  tags={["llm-agents"]}
+>
+
+**TL;DR.** Elixir/OTP-style actors for Python — addressable, stateful processes with mailboxes, supervisors, and structured failure on top of `anyio`.
+
+**Takeaways**
+
+- Built for per-entity long-lived state (agents, sessions, game entities) where task queues fall apart; not a Celery/Temporal replacement.
+- Ships the OTP starter pack: `GenServer` (call/cast), `Supervisor` with `one_for_one`/`one_for_all`, `DynamicSupervisor`, `Registry`, `Agent`, `Task`.
+- README's killer example: bind a Claude Agent SDK client + sandbox to an actor's lifecycle so `terminate()` cleans up on any exit — crash, stop, or supervisor shutdown.
+- Cyrus's own repo, Python 3.13+, source-install only, 2 stars — early but readable end-to-end.
+
+</Item>
+
+<Item
+  id="3ea17c64f01feab49b80a79197649c05701b6daa9f3dda31ae2277e857698b45"
+  url="https://github.com/refactoringhq/tolaria"
+  source="github"
+  title="refactoringhq/tolaria: Desktop app to manage markdown knowledge bases"
+  savedAt="2026-05-11T18:12:20-07:00"
+  tags={["cli", "coding", "llm-agents"]}
+>
+
+**TL;DR.** A keyboard-first desktop app for managing markdown vaults as git repos, built for power users who want their second brain in plain files instead of someone else's cloud.
+
+**Takeaways**
+
+- Tauri/React app for macOS, Windows, Linux — every vault is a git repo of plain markdown with YAML frontmatter, no accounts or servers required.
+- "AI-first but not AI-only": built-in setup paths for Claude Code, Codex CLI, and Gemini CLI, but the vault works with any agent or editor.
+- Built by Luca Rossi (Refactoring newsletter) to run his own 10,000+ note workspace; AGPL-3.0 license is the main tradeoff for commercial reuse.
+
+</Item>
+
+<Item
+  id="a044c8886b383b85db3f4e8a7fc46871bd79a6a499faca09f7f1a62d4c17abe4"
+  url="https://github.com/CyrusNuevoDia/gepa-research"
+  source="github"
+  title="CyrusNuevoDia/gepa-research"
+  savedAt="2026-05-11T18:11:57-07:00"
+  tags={["cli", "coding", "evolution"]}
+>
+
+**TL;DR.** Drop GEPA's genetic-Pareto LLM search into Claude Code, Codex, OpenClaw, or Hermes and let it evolve your codebase against auto-discovered benchmarks.
+
+**Takeaways**
+
+- Two-skill flow: `discover` instruments the repo and picks metrics; `optimize` runs `gepa.optimize_anything` to propose, gate, and commit candidates.
+- Every candidate lives in its own git worktree with regression/safety gates — failing candidates score 0.0, passing ones get committed with a full audit trail.
+- Ships a local dashboard for the candidate lineage DAG and per-task traces; Apache 2.0, 93 stars, fork of evoresearch, install via `uv tool install` from the `plugins/gepa-research` subdirectory.
+
+</Item>
+
+<Item
+  id="b321d228efd2bc14fda49902aab098d98dd1d57d17a873ce52fc2d8c738b27b4"
+  url="https://github.com/garrytan/gstack"
+  source="github"
+  title="garrytan/gstack"
+  savedAt="2026-05-11T18:11:35-07:00"
+  tags={["coding", "llm-agents"]}
+>
+
+**TL;DR.** Garry Tan's 10 slash commands turn Claude Code into a specialist team — CEO, eng lead, release manager, QA — so you stop getting generic-assistant output for every stage of building.
+
+**Takeaways**
+
+- `/plan-ceo-review` pressure-tests whether you're building the right thing before any code; `/plan-eng-review` then locks architecture and edge cases.
+- `/ship` does the full release dance (sync main, run tests, resolve Greptile, push, open PR) and `/qa` gives the agent eyes via browser automation with before/after health scores.
+- 17k stars, TypeScript, designed to pair with Conductor for running parallel sessions — installs via clone + Bun symlinks, not a package.
+
+</Item>
+
+<Item
+  id="77a22b4eac7e548854a37a0cddbb8c262a82a8f2f1343a94f34fe87efcaff035"
+  url="https://github.com/mohammadtavakoli78/BEAM"
+  source="github"
+  title="mohammadtavakoli78/BEAM"
+  savedAt="2026-05-11T18:11:12-07:00"
+  tags={["llm-agents"]}
+>
+
+**TL;DR.** BEAM is a 100-conversation benchmark that pushes LLM memory tests up to 10M tokens, paired with LIGHT — a 3-system memory framework that beats 1M-context baselines by 3.5–12.7%.
+
+**Takeaways**
+
+- Benchmark probes 10 distinct memory abilities (contradiction resolution, event ordering, knowledge update, etc.) across 2,000 questions on conversations from 128K to 10M tokens.
+- LIGHT mimics human cognition with episodic memory + working memory + a scratchpad for salient facts; ablations show each component pulls weight.
+- Finding worth the eyebrow-raise: even 1M-context models (with or without RAG) degrade as dialogues lengthen — raw context window isn't enough.
+- ICLR 2026 paper, 62 stars, datasets live on HuggingFace (BEAM + BEAM-10M).
+
+</Item>
+
+<Item
+  id="e77b2a90e3cf24327d927f36633047cc2fea3e11af3d67526dc211fcc4143152"
+  url="https://github.com/davebcn87/pi-autoresearch"
+  source="github"
+  title="davebcn87/pi-autoresearch: Autonomous experiment loop extension for pi"
+  savedAt="2026-05-11T18:08:35-07:00"
+  tags={["llm-agents"]}
+>
+
+**TL;DR.** Karpathy-inspired autonomous experiment loop for the pi agent — try, measure, keep, repeat — with persistent session files and a live confidence score that separates real wins from benchmark jitter.
+
+**Takeaways**
+
+- Drop-in `pi install` extension: `init_experiment` / `run_experiment` / `log_experiment` tools plus a `/autoresearch` slash command that resumes via `autoresearch.md` + `autoresearch.jsonl` across context resets.
+- Confidence score uses statistical noise estimation (≥2.0× green, 1–2× yellow, &lt;1× red) so you can tell a real speedup from measurement noise after just 3 runs.
+- Domain-agnostic optimization target — test runtime, bundle size, Lighthouse, LLM training loss — with optional backpressure (tests/lint) after each kept experiment to prevent silent regressions.
+- 2.5k stars, TypeScript, only 6 open issues — early but punchy; pairs an extension (infra) with a skill (domain knowledge), a clean separation worth borrowing even if you don't use pi.
+
+</Item>
+
+<Item
+  id="5d7171abf88c58df0be2ac14fb73e00ca8e1465675a275ddd3beeedf97f33746"
+  url="https://github.com/millionco/spawn-agent"
+  source="github"
+  title="millionco/spawn-agent"
+  savedAt="2026-05-11T18:08:14-07:00"
+  tags={["cli", "coding", "llm-agents"]}
+>
+
+**TL;DR.** A Vercel AI SDK provider that wraps local coding agents (Claude Code, Codex, Cursor, Copilot, Gemini) behind a single `streamText` call via the Agent Client Protocol.
+
+**Takeaways**
+
+- Treats your installed CLI agents as interchangeable models — swap `spawnAgent("claude")` for `spawnAgent("codex")` and the rest of your AI SDK code is unchanged.
+- Inline knobs for `cwd`, `permission` (`auto-allow`/`auto-reject`/`stream`), MCP servers, and extra writable dirs — sandboxing is configured per-call, not globally.
+- `createSpawnAgentSession` keeps a subprocess alive for multi-turn memory; `spawnAgent.fromAdapter` lets you plug in any ACP-speaking binary.
+- 153 stars, 8 forks — early but the ACP bet means it rides whatever Zed, Anthropic, and GitHub ship next.
+
+</Item>
+
+<Item
+  id="b1a4604cc570de42d1463839887bc20bc5d8406ba67da80a261809dd1dfeb7e8"
+  url="https://github.com/withastro/flue"
+  source="github"
+  title="withastro/flue"
+  savedAt="2026-05-11T18:07:49-07:00"
+  tags={["llm-agents"]}
+>
+
+**TL;DR.** A headless, programmable "Claude Code in a box" — TypeScript framework where agent logic lives in Markdown and runs anywhere from Cloudflare Workers to GitHub Actions.
+
+**Takeaways**
+
+- From the Astro team (1.7k stars, experimental): pitches itself as "Astro/Next.js for agents" — runtime-agnostic, no TUI/GUI, pure programmatic harness.
+- Defaults to a virtual sandbox (just-bash) instead of spinning up containers per agent — much cheaper for high-scale deployments, with Daytona/R2/local mounts available when you need real filesystems.
+- Skills, context, and AGENTS.md drive behavior — minimal TS code, schema-validated results via Valibot, MCP adapters for external tools.
+
+</Item>
+
+<Item
+  id="5b41f898234e6fe58ddaecdd8e525e0a42b6ba4e94ae480417e350ac602d1809"
+  url="https://github.com/vercel-labs/ai-cli"
+  source="github"
+  title="vercel-labs/ai-cli"
+  savedAt="2026-05-11T18:07:25-07:00"
+  tags={["cli", "coding", "llm-agents"]}
+>
+
+**TL;DR.** Vercel's `ai-cli` turns image, video, and text generation into one-line terminal commands with stdin piping and inline previews.
+
+**Takeaways**
+
+- Unix-native AI: pipe between modalities (`ai image "a dragon" | ai video "animate this"`) or feed in files (`git diff | ai text "explain"`).
+- Routes through Vercel AI Gateway for unified access to hundreds of models; supports multi-model comparison via comma-separated `-m` flags.
+- Inline image/video previews in Kitty-protocol terminals (Ghostty, WezTerm, iTerm2) — decodes H.264 keyframes via WASM, no native deps.
+- 452 stars, early-stage (vercel-labs experiment), TypeScript, requires AI Gateway or provider API key.
+
+</Item>
+
+<Item
+  id="eccfa90871dd67c39c14993bc18ce71ce3f6bf90ed709b09e3d873f98e0df12d"
+  url="https://github.com/willchen96/mike"
+  source="github"
+  title="willchen96/mike"
+  savedAt="2026-05-11T18:07:03-07:00"
+  tags={["coding", "llm-agents"]}
+>
+
+**TL;DR.** An open-source, AGPL-licensed AI legal platform (Next.js + Express + Supabase) you can self-host.
+
+**Takeaways**
+
+- Full stack: Next.js frontend, Express backend, Supabase for auth/Postgres, S3-compatible storage (e.g. Cloudflare R2), plus LibreOffice for DOC/DOCX→PDF.
+- AGPL-3.0-only — fine for self-hosting, but any hosted derivative must release source, so it's a deliberate poison pill against closed forks.
+- 95 stars, 28 forks, 0 open issues — small but real; ships a one-shot SQL migration for fresh Supabase setups rather than a migration chain.
+
+</Item>
+
+<Item
+  id="03ebc6f851f4a8a33b92b334b0d7f098c8b00a34750b5858fa9b5af3da181052"
+  url="https://github.com/millionco/localterm"
+  source="github"
+  title="millionco/localterm"
+  savedAt="2026-05-11T18:06:38-07:00"
+  tags={["coding"]}
+>
+
+**TL;DR.** A terminal where each browser tab is a shell — open a tab to spawn, close it to kill, no sessions or reconnects.
+
+**Takeaways**
+
+- `npx localterm@latest start` boots a local daemon at `localterm.localhost:3417`; works without `/etc/hosts` edits thanks to RFC 6761.
+- Hard security stance: loopback-only binding plus Host/Origin checks on `/api/*` and `/ws` to defeat DNS rebinding.
+- If you want persistence, run `tmux` inside it — reloads wipe the shell by design.
+- Small but real: TypeScript, MIT-licensed, 142 stars, 9 forks, 5 open issues.
+
+</Item>
+
+<Item
+  id="6240a9e258cb85f34f7c2820e8667da7e7e7c530f087c976e51388f37d1f18d4"
+  url="https://github.com/Trampoline-AI/predict-rlm"
+  source="github"
+  title="Trampoline-AI/predict-rlm"
+  savedAt="2026-05-11T18:06:13-07:00"
+  tags={["coding", "framework-comparison", "llm-agents"]}
+>
+
+**TL;DR.** A production runtime where the root LM recursively calls sub-LMs via DSPy signatures through a REPL, dodging context rot on long-horizon tasks.
+
+**Takeaways**
+
+- Implements MIT CSAIL's Recursive Language Models paper — the LM manages its own control flow symbolically, so one line can represent 1M sub-calls.
+- For Python devs building agents who want fully interpretable trajectories and performance that scales with base model improvements rather than capped by a harness.
+- 196 stars, ships with prebuilt skills (SpreadsheetBench, document/invoice analysis) and claims smaller models can outperform larger ones on per-token efficiency.
+
+</Item>
+
+<Item
+  id="137ebc899af74dcede9b84f6ad9ed4c177f50376f9d47a412f6533a14cd44c60"
+  url="https://github.com/PaddlePaddle/PaddleOCR"
+  source="github"
+  title="PaddlePaddle/PaddleOCR"
+  savedAt="2026-05-11T18:05:49-07:00"
+  tags={["llm-agents"]}
+>
+
+**TL;DR.** Open-source OCR toolkit that turns PDFs and images into structured data for LLMs, with a lightweight vision-language model that handles tables, formulas, and 100+ languages.
+
+**Takeaways**
+
+- PP-StructureV3 converts messy docs (warped scans, charts, multilingual mixed text) into Markdown or JSON with coordinates — the bridge piece most RAG pipelines are missing.
+- Already load-bearing infrastructure for Dify and RAGFlow; 77k stars, 6k+ dependent repos, runs on NVIDIA/Intel/NPU plus a new browser inference SDK.
+- PaddleOCR-VL-1.5 is the lightweight VLM variant — worth a look if you want doc parsing without paying GPT-4V tax per page.
+
+</Item>
+
+<Item
+  id="93199975258fefa2d352478aac51ddb6fae7a21e2f069fbbb0f94f37b31b11ca"
+  url="https://github.com/JigsawStack/postgres-llm"
+  source="github"
+  title="JigsawStack/postgres-llm"
+  savedAt="2026-05-11T18:05:23-07:00"
+  tags={["llm-agents"]}
+>
+
+**TL;DR.** Postgres trigger function that fires LLM calls on insert/update and writes the structured output back into target columns, all async via pg_cron.
+
+**Takeaways**
+
+- Drop-in SQL: define a trigger with `llm.call('prompt with &#123;column&#125; placeholders', 'target_col')` and rows get enriched (sentiment, translation, OCR, classification) without app code.
+- Async by design — INSERTs return immediately, pg_cron worker fills the column seconds later; supports multi-column updates from one prompt via JSON schema structured output, plus built-in retries.
+- Requires `http`, `hstore`, and `pg_cron` extensions; works with any Chat Completions-compatible API. Tiny repo (53 stars, PLpgSQL) — more clever pattern than production framework.
+
+</Item>
+
+<Item
+  id="3e9f3715115871e5af7f4ef98be7d6ef3e96d420f3a449f2f9e8ed955da9c6d9"
+  url="https://github.com/strukto-ai/mirage"
+  source="github"
+  title="strukto-ai/mirage"
+  savedAt="2026-05-11T18:01:14-07:00"
+>
+
+**TL;DR.** Mirage mounts S3, Slack, Gmail, GitHub, and friends as one virtual filesystem so AI agents can drive every backend with plain bash instead of learning N SDKs.
+
+**Takeaways**
+
+- Unifies cloud storage, messaging, and databases under Unix semantics — any LLM that knows `grep`, `cat`, `cp` can use it with zero new vocabulary.
+- Python + TypeScript SDKs, embeds in-process (no separate daemon), and plugs into OpenAI Agents SDK, Vercel AI SDK, and LangChain.
+- Custom commands can be scoped per-resource and filetype (e.g. `cat` on a Parquet file in `/s3` renders JSON rows), plus two-layer caching for metadata and bytes.
+- 1.9k stars, TypeScript-first, backed by strukto.ai — worth a look if you're tired of wiring one MCP per service.
+
+</Item>
+
+<Item
+  id="176292b0d0cb7e43ada3abad38c4582dc8c05bdee534f2fa5767c5897ba8464a"
+  url="https://github.com/dmtrKovalenko/fff"
+  source="github"
+  title="dmtrKovalenko/fff"
+  savedAt="2026-05-11T18:00:48-07:00"
+  tags={["coding", "llm-agents"]}
+>
+
+**TL;DR.** A Rust-powered file search toolkit that out-greps ripgrep for any long-running agent, editor, or CLI that searches more than once.
+
+**Takeaways**
+
+- Ships as an MCP server (Claude Code, Cursor, Codex) plus a Neovim plugin, Rust crate, C library, and Node/Bun SDK — same engine, many surfaces.
+- Edge over ripgrep/fzf comes from a persistent in-memory index with frecency ranking, git-aware annotations, and auto-fuzzy fallback on zero-match queries.
+- 5.9k stars, actively maintained; one-line install script wires it into your agent and you just tell the model "use fff."
+
+</Item>
+
+<Item
+  id="83154f1f3c3c0f88f79edbad0c06809dcd7ed64750c04b09cf03fe680c577ee2"
+  url="https://github.com/datalab-to/chandra"
+  source="github"
+  title="datalab-to/chandra"
+  savedAt="2026-05-11T17:56:35-07:00"
+>
+
+**TL;DR.** Datalab's Chandra 2 is an open-weights OCR model that beats olmOCR on math, tables, and layout across 90+ languages.
+
+**Takeaways**
+
+- Converts PDFs/images to structured HTML, Markdown, or JSON with strong handwriting, forms, and table reconstruction; runs locally via HuggingFace or remote via vLLM.
+- 10.5k stars and active — Chandra 2 dropped 3/2026, one-line install (`pip install chandra-ocr`) with a Streamlit app included.
+- License catch: Apache 2.0 code but OpenRAIL-M weights — free for research, personal use, and startups under $2M funding; commercial self-hosting needs a Datalab license.
+
+</Item>
+
+<Item
+  id="6d86352c491f77c2da978c0cdb30dc4a12badc6644c603f2840805e443142bbd"
+  url="https://github.com/nylas/cli"
+  source="github"
+  title="nylas/cli"
+  savedAt="2026-05-11T17:56:13-07:00"
+  tags={["coding", "llm-agents"]}
+>
+
+**TL;DR.** A Go CLI that unifies email, calendar, and contacts across Google/Microsoft/IMAP — no SMTP wrangling, no provider SDKs.
+
+**Takeaways**
+
+- Three interfaces in one binary: classic CLI, vim-keybound TUI, and a local web client called Air.
+- Ships an MCP server so coding agents can read your email and calendar directly.
+- Credentials live in the system keyring; offline timezone tools work without an API key.
+- Tiny footprint (28 stars, MIT) from Nylas itself — basically a thin terminal wrapper on their hosted API, so you're locked into their backend.
+
+</Item>
+
+<Item
+  id="c444c08b02d3d0eafb1c3b4254537cfb359aae93c6d145229e270b72d0fd24ed"
+  url="https://github.com/CelestoAI/SmolVM"
+  source="github"
+  title="CelestoAI/SmolVM"
+  savedAt="2026-05-11T17:55:52-07:00"
+  tags={["coding", "llm-agents"]}
+>
+
+**TL;DR.** SmolVM gives AI agents their own disposable microVM that boots in ~500ms with hardware isolation, browser sandbox, and snapshots.
+
+**Takeaways**
+
+- Open-source sandbox infra (Apache 2.0, ~536 stars) for running untrusted agent code with hardware-level isolation — not just a container wrapper.
+- One-command install spins up sandboxes preloaded with Claude Code, Codex, or Pi; mount host dirs read-only or writable to let agents explore your codebase.
+- Network egress controls let you whitelist domains so agents can't call home — a real differentiator vs. typical Docker-based sandboxes.
+
+</Item>
+
+<Item
+  id="92cba283be6904fcad42bcf15dd93beccc8d4c7e1e1c257aa0d633efc1e29266"
+  url="https://github.com/Lightning-AI/LitServe"
+  source="github"
+  title="Lightning-AI/LitServe"
+  savedAt="2026-05-11T17:55:32-07:00"
+  tags={["coding", "framework-comparison", "llm-agents"]}
+>
+
+**TL;DR.** LitServe is a Python framework for building custom AI inference servers when vLLM-style rigid abstractions get in your way.
+
+**Takeaways**
+
+- Subclass `LitAPI`, define setup/predict, and you get batching, multi-worker scaling, and streaming on top of FastAPI — without writing the MLOps glue.
+- Aimed at people building agents, RAG, multi-model pipelines, or MCP servers, not folks who just want to serve one LLM (vLLM is still better for that).
+- 3.9k stars, Apache 2.0, from the PyTorch Lightning team — self-host anywhere or one-click deploy to Lightning Cloud (the obvious upsell).
+
+</Item>
+
+<Item
+  id="e5f55c1f54ad546874caecedbef66b4f0fee14baea72aa333d9e5f96d789bef2"
+  url="https://github.com/sentient-agi/EvoSkill"
+  source="github"
+  title="sentient-agi/EvoSkill"
+  savedAt="2026-05-11T17:55:12-07:00"
+  tags={["coding", "evolution", "llm-agents"]}
+>
+
+**TL;DR.** EvoSkill auto-evolves reusable skills for coding agents by mutating prompts/skills against failed trajectories, then saves the winning agent config to a git branch.
+
+**Takeaways**
+
+- Extends GEPA from single-prompt tweaks to full agent evolution — proposes joint skill+prompt mutations and produces a new agent program each iteration.
+- Plug-and-play across Claude Code, OpenCode, OpenHands, Goose, and Codex CLI; any model provider works (OpenRouter, Anthropic, OpenAI, Fireworks).
+- Skills transfer across models and tasks — evolve once, reuse elsewhere. 725 stars, Apache 2.0, from Sentient Labs.
+
+</Item>
+
+<Item
+  id="ce704981bc54c00f14a23daf166ae6eae29e156587b90a010e0d46777f350609"
+  url="https://github.com/adithya-s-k/RL_Envs_101"
+  source="github"
+  title="adithya-s-k/RL_Envs_101"
+  savedAt="2026-05-11T17:54:48-07:00"
+  tags={["framework-comparison", "llm-agents", "rl-environments"]}
+>
+
+**TL;DR.** A "Rosetta stone" for RL environments — the same three envs (Jupyter agent, Wordle, desktop computer-use) reimplemented across six frameworks so you can see how each one actually models tools, state, and rollouts.
+
+**Takeaways**
+
+- Covers OpenEnv, ORS, NeMo Gym, Verifiers, SkyRL Gym, and GEM — each folder is a runnable minimal example, not a training run, so you can compare dialects side by side.
+- Ships 5 agent skills (`.claude/skills/`) that turn a plain-English env description into runnable code across frameworks; installable via `npx skills add adithya-s-k/RL_Envs_101` and works with Claude Code, Cursor, Codex, etc.
+- Companion to a Hugging Face blog post; 82 stars, Python, MIT-ish hands-on guide vibe — useful if you're deciding which RL env framework to commit to before writing real training code.
+
+</Item>

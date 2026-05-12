@@ -1,0 +1,70 @@
+---
+date: "2026-04-13"
+title: "April 13, 2026"
+count: 3
+sources:
+  x: 3
+---
+
+<Item
+  id="639f200b316ccfe5509001cb6776467fa4ea9c0cc9fcf240ad591f6ed5fcc2c2"
+  url="https://x.com/i/web/status/2043832596304670749"
+  source="x"
+  title="HOW TO GO VIRAL ON X: complete basics easy mode"
+  savedAt="2026-04-13T16:23:58-07:00"
+  author="@cailynyongyong"
+  tags={["thread", "x"]}
+>
+
+**TL;DR.** Going viral on X is a playbook: warm up the account, tag communities and big accounts, post daily, and ride templates + trends until something hits.
+
+**Takeaways**
+
+- Tag communities and famous accounts to borrow reach before you have your own.
+- Post every day and wait for the random viral hit — most posts won't land, but volume is the strategy.
+- Copy viral templates from competitors and follow trends instead of inventing format from scratch.
+- For demo videos: 1-second hook, first 5 seconds matter most, one feature per video, tell a story.
+
+</Item>
+
+<Item
+  id="4985534afea7f2c7672265299109f9f23dfdc1035989cbdeb8bd17512413edad"
+  url="https://x.com/i/web/status/2043777033017405547"
+  source="x"
+  title="My biggest takeaways from @rabois:"
+  savedAt="2026-04-13T12:43:10-07:00"
+  author="@lennysan"
+  tags={["x"]}
+>
+
+**TL;DR.** Keith Rabois's playbook: hire "barrels" not ammo, find undiscovered (often young) talent, and run companies on relentless tempo and public accountability.
+
+**Takeaways**
+
+- "Barrels" — people who take ideas from zero to outcome unsupervised — are the real constraint on company output; adding ammunition without barrels just adds coordination tax.
+- Skip consumer research entirely: customers can't articulate subconscious buying decisions, and bad signal locks into the org and distorts every future call.
+- Run 20+ references per hire and keep going until you hit negative feedback; then ask "would I hire them again?" 30 days in to compound your instincts fast.
+- Criticize publicly, not privately — private feedback optimizes for the individual, public feedback signals to the whole team that leadership is on it.
+
+</Item>
+
+<Item
+  id="f081e082fc594a0270e0a2c4edfcf4fc617cc785a0ec0f2dab20c2aad435c643"
+  url="https://x.com/i/article/2043175667244634112"
+  source="x"
+  title="Filbert: How we built our background coding agent in an afternoon"
+  savedAt="2026-04-13T11:01:37-07:00"
+  author="@philhchen"
+  tags={["article", "x"]}
+>
+
+**TL;DR.** A team built "Filbert," an autonomous coding agent that writes 95% of their PRs and runs 14 daily maintenance jobs, in a single afternoon — because they'd spent the prior year making their infra agent-friendly.
+
+**Takeaways**
+
+- The unlock wasn't the agent — it was prior investment: Terraform-managed secrets/IAM, self-hosted CI runners, monorepo with infra+product code, and skills already written for agents.
+- Architecture: per-thread directories on disk act as durable memory (`agent-notes.md`, reused git worktrees), so Filbert resumes follow-ups hours later with full context.
+- They alternate providers by day of week — Codex Mon/Wed/Fri/Sun, Claude Tue/Thu/Sat — via a YAML config of prompts, schedules, and reasoning effort.
+- Design choice borrowed from OpenClaw: a lightweight supervisor dispatching scoped agents, not one monolithic do-everything agent.
+
+</Item>

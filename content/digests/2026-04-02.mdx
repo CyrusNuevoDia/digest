@@ -1,0 +1,89 @@
+---
+date: "2026-04-02"
+title: "April 2, 2026"
+count: 4
+sources:
+  x: 4
+---
+
+<Item
+  id="6ca262a35c9c2a88ba5114ccfa194a951f165fd0c05866d5f20411bc74ac15ec"
+  url="https://x.com/i/web/status/2039805659525644595"
+  source="x"
+  title="LLM Knowledge Bases"
+  savedAt="2026-04-02T13:42:21-07:00"
+  author="@karpathy"
+  tags={["thread", "x"]}
+>
+
+**TL;DR.** Karpathy uses LLMs to compile a personal markdown wiki in Obsidian from raw sources, then queries and grows it agentically — shifting his token spend from code to knowledge.
+
+**Takeaways**
+
+- Pipeline: drop sources into `raw/`, let an LLM "compile" them into linked .md articles with summaries, backlinks, and categories; Obsidian is the IDE, the LLM does all the writing.
+- At ~100 articles / 400K words, fancy RAG wasn't needed — auto-maintained index files and summaries let the agent find what it needs; outputs come back as markdown, Marp slides, or matplotlib, then get filed back into the wiki so explorations compound.
+- "LLM health checks" lint the wiki for inconsistencies, missing data, and new article candidates; he sees room for a real product here, and eventually finetuning so the model "knows" the wiki in its weights.
+
+</Item>
+
+<Item
+  id="0856f55609e25dcaaa31c22a4de0cd4ed904a52956f80515f158a08a07333d60"
+  url="https://x.com/i/article/2039778505282461696"
+  source="x"
+  title="How to turn your OpenClaw into the world's best assistant"
+  savedAt="2026-04-02T12:27:02-07:00"
+  author="@ryancarson"
+  tags={["article", "x"]}
+>
+
+**TL;DR.** Ryan Carson's "clawchief" is an operating layer on top of OpenClaw that turns it into a proactive chief of staff handling email triage, scheduling, CRM updates, and daily task prep.
+
+**Takeaways**
+
+- Repo at github.com/snarktank/clawchief — skills + workspace files layered on an existing OpenClaw + GOG (Gmail/Calendar/Sheets) install, not a replacement.
+- `HEARTBEAT.md` is the proactivity trigger: makes the assistant loop through priority map, auto-resolver, and live task list, and only ping when action is actually needed.
+- One canonical `tasks.md` as the single source of truth — kills duplicates and stale state instead of guessing from chat history.
+- Credits @pedroh96's priority-map / auto-resolver / ingestion pipeline pattern (from his Core Memory interview) as the conceptual backbone.
+
+</Item>
+
+<Item
+  id="45f39b8ddb67efaea994f3c81bdeebeb8b72ef146ca412e31f12884056de96d5"
+  url="https://x.com/i/article/2039764947991953408"
+  source="x"
+  title="How I Scaled Warp to 500K Weekly Active Developers in 2024"
+  savedAt="2026-04-02T11:50:21-07:00"
+  author="@michlimlim"
+  tags={["article", "x"]}
+>
+
+**TL;DR.** Warp hit 500K weekly devs by hunting untapped channels (YouTube creators, paid GitHub READMEs, $2 Google Ads CAC, hackathon judges) before anyone else noticed them.
+
+**Takeaways**
+
+- Don't build a content team — hire the creator already making what your audience loves and get out of their way (0→60K YouTube subs in 3 months).
+- Paid GitHub README placements worked so well people thought GitHub had launched an ad network.
+- Cracked Google Ads down from $30 to $2 CAC by finding one sleeper keyword ("best Mac terminal") and relentlessly A/B testing landing pages.
+- At hackathons, market to the judges, not the students — they're the senior leaders at your target accounts.
+
+</Item>
+
+<Item
+  id="31c899176e2ba9929d108ee43a6208b6d04321c48b1e644e73cbad80c6486810"
+  url="https://x.com/i/web/status/2039767585672384855"
+  source="x"
+  title="@FU_joehudson: @FU_joehudson: 1. If you resist authority, you couldn’t trust th…"
+  savedAt="2026-04-02T11:11:04-07:00"
+  author="@FU_joehudson"
+  tags={["x"]}
+>
+
+**TL;DR.** Your relationship to authority is just your unresolved relationship with your childhood authorities wearing different masks.
+
+**Takeaways**
+
+- Resisting authority = couldn't trust the ones who raised you.
+- Refusing your own authority = still scared of becoming them.
+- Defining yourself by your authority = still chasing their approval.
+
+</Item>
