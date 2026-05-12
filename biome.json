@@ -1,0 +1,81 @@
+{
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true
+  },
+  "files": {
+    "ignoreUnknown": true,
+    "includes": ["!node_modules", "!.next", "!dist", "!build", "!ctx"]
+  },
+  "css": {
+    "parser": {
+      "tailwindDirectives": true
+    }
+  },
+  "javascript": {
+    "formatter": {
+      "semicolons": "asNeeded"
+    }
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineWidth": 100
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "suspicious": {
+        "noUnknownAtRules": "off",
+        "noExplicitAny": "off"
+      },
+      "style": {
+        "noNestedTernary": "off",
+        "useDefaultSwitchClause": "off",
+        "useConsistentTypeDefinitions": {
+          "level": "warn",
+          "fix": "safe",
+          "options": {
+            "style": "type"
+          }
+        }
+      },
+      "nursery": {
+        "noEqualsToNull": "off",
+        "noLeakedRender": "off",
+        "useExhaustiveSwitchCases": "error",
+        "useSortedClasses": {
+          "level": "info",
+          "options": {
+            "attributes": ["className"],
+            "functions": ["cn"]
+          }
+        }
+      },
+      "performance": {
+        "noNamespaceImport": "off"
+      }
+    },
+    "domains": {
+      "next": "recommended",
+      "react": "recommended"
+    }
+  },
+  "assist": {
+    "actions": {
+      "source": {
+        "organizeImports": "on"
+      }
+    },
+    "enabled": true
+  },
+  "extends": [
+    "ultracite/biome/core",
+    "ultracite/biome/next",
+    "ultracite/biome/react"
+  ]
+}
