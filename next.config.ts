@@ -22,7 +22,7 @@ let config: NextConfig = {
 config = createMDX({
   extension: /\.mdx?$/,
   options: {
-    remarkPlugins: ["remark-gfm", "remark-mdx-frontmatter", "remark-frontmatter"],
+    remarkPlugins: ["remark-frontmatter", "remark-mdx-frontmatter", "remark-gfm"],
     rehypePlugins: ["rehype-slugs"],
   },
 })(config)
