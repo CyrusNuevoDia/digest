@@ -1,0 +1,1485 @@
+---
+date: "2026-05-13"
+title: "May 13, 2026"
+count: 69
+sources:
+  github: 67
+  x: 2
+---
+
+<Item
+  id="494fbed9a67adc9ce49fb6d055ec562acbb9a26c5256ab9dec1ed730d5384c99"
+  url="https://github.com/sveltejs/devalue"
+  source="github"
+  title="sveltejs/devalue"
+  savedAt="2026-05-13T17:53:48-07:00"
+>
+
+**TL;DR.** `devalue` is JSON serialization for real JavaScript state: cycles, weird primitives, rich built-ins, custom types, and even promises.
+
+**Takeaways**
+
+- Built for cases where `JSON.stringify` breaks: circular/repeated refs, `undefined`, `NaN`, `BigInt`, `Map`, `Set`, typed arrays, URLs, Temporal, and custom classes.
+- Useful when shipping server data to client code, especially in Svelte-ish environments where compact, XSS-aware serialization matters.
+- Two modes: `uneval` emits compact JS code, while `stringify`/`parse` avoid `eval`; `stringifyAsync` also awaits promises before serializing.
+- Non-obvious constraint: serialization format is not stable across versions, so don’t serialize with one version and parse with another.
+- --
+- Source type: GitHub repository
+- Title: sveltejs/devalue
+- URL: https://github.com/sveltejs/devalue
+
+</Item>
+
+<Item
+  id="67b64e0ba6bed5671e9e6d334b9aa0a7d4750af807594f4720d19b445fc5c9bc"
+  url="https://github.com/FranciscoMoretti/chat-js"
+  source="github"
+  title="FranciscoMoretti/chat-js"
+  savedAt="2026-05-13T17:53:15-07:00"
+  tags={["ai-integrations", "api", "cli"]}
+>
+
+**TL;DR.** ChatJS is a batteries-included starter kit for shipping serious AI chat apps without rebuilding auth, model routing, streaming, and tools from scratch.
+
+**Takeaways**
+
+- Gives developers a full TypeScript/Next.js foundation with CLI scaffolding, 120+ model support, auth, attachments, branching, sharing, web search, image generation, sandboxed code execution, and MCP.
+- Best for teams building custom AI chat products who want infrastructure solved but still want ownership of the app code.
+- Non-obvious detail: it is Apache-2.0 licensed and already has meaningful traction, with 1.1k+ stars and 100+ forks.
+- --
+
+</Item>
+
+<Item
+  id="82d803b5a5c59170ed946da21765831ab5412052f6da143845f38f79ba79fabc"
+  url="https://github.com/supermemoryai/supermemory"
+  source="github"
+  title="supermemoryai/supermemory: Memory engine and app that is extremely fast, scalab…"
+  savedAt="2026-05-13T17:52:49-07:00"
+  tags={["api", "context-engineering", "document-intelligence"]}
+>
+
+**TL;DR.** Supermemory wants to be the outsourced context stack for AI apps: memory, RAG, user profiles, connectors, and multimodal file ingestion behind one API.
+
+**Takeaways**
+
+- It targets developers building agents that need persistent user memory without managing vector DBs, chunking, contradiction handling, or profile extraction themselves.
+- The API plugs into Vercel AI SDK and LangChain, and can ingest conversations, PDFs, images, videos, code, Gmail, Drive, Notion, and GitHub.
+- Non-obvious edge: it is both an open GitHub repo and a hosted product, with strong benchmark positioning across LongMemEval, LoCoMo, and ConvoMem.
+- --
+
+</Item>
+
+<Item
+  id="4d0879b29700e378a652250438045c240d72a7f85d37bad7e528f6668317c6f9"
+  url="https://github.com/AnswerDotAI/ModernBERT"
+  source="github"
+  title="AnswerDotAI/ModernBERT"
+  savedAt="2026-05-13T17:52:18-07:00"
+  tags={["context-engineering", "python", "similarity-search"]}
+>
+
+**TL;DR.** ModernBERT is the research-code path for people who want to train, evaluate, or adapt a modernized BERT encoder rather than just consume a finished checkpoint.
+
+**Takeaways**
+
+- It introduces FlexBERT, a modular encoder-building setup driven by YAML configs and built on MosaicBERT plus Flash Attention 2.
+- Best for researchers and infra-minded ML builders doing pretraining, GLUE evals, dense retrieval, or ColBERT-style retrieval experiments.
+- The repo is active and substantial, but the README is still barebones; casual users probably want the Hugging Face checkpoints instead.
+- --
+- Source type: GitHub repository
+- Title: AnswerDotAI/ModernBERT
+- URL: https://github.com/AnswerDotAI/ModernBERT
+- Tags: context-engineering, python, similarity-search
+
+</Item>
+
+<Item
+  id="567867c94db02c4d5282caafd3de2c7b0e3b1ffa8aa315d9f3e7d1d7c09422fd"
+  url="https://github.com/winfunc/opcode"
+  source="github"
+  title="winfunc/opcode"
+  savedAt="2026-05-13T17:51:51-07:00"
+  tags={["llm-agents", "typescript"]}
+>
+
+**TL;DR.** opcode turns Claude Code into a full desktop control center for sessions, custom agents, MCP config, and usage analytics.
+
+**Takeaways**
+
+- It is for developers who want Claude Code workflows in a GUI: project management, session history, background agents, checkpoints, and prompt editing.
+- The MCP tooling is a practical hook: import Claude Desktop server configs, manage servers, and edit `CLAUDE.md` from one app.
+- It is popular but still source-build only: 21k+ stars, AGPL licensed, built with React/TypeScript plus Rust/Tauri.
+
+</Item>
+
+<Item
+  id="a5a1b752759c80fcc551b6c2f392e396ba7c46020cb98594f1f2e8836409123c"
+  url="https://github.com/midday-ai/midday"
+  source="github"
+  title="midday-ai/midday"
+  savedAt="2026-05-13T17:51:27-07:00"
+  tags={["automation", "crm", "llm-agents"]}
+>
+
+**TL;DR.** Midday is an open-source AI back office for freelancers that bundles invoicing, time tracking, file reconciliation, storage, and financial insight into one TypeScript monorepo.
+
+**Takeaways**
+
+- Built for solo operators who currently stitch together banking, receipts, invoices, contracts, time tracking, and accountant exports across too many tools.
+- The standout feature is “Magic Inbox,” which auto-matches receipts and invoices to transactions so bookkeeping gets less manual.
+- Strong GitHub traction with 14k+ stars, but AGPL-3.0 means commercial reuse needs care or a separate license.
+- --
+- Source type: GitHub repository
+- Title: midday-ai/midday
+- URL: https://github.com/midday-ai/midday
+
+</Item>
+
+<Item
+  id="c12f5fe09eb9119d40acd56b1c09cd2630a67282559f177a61efa7b0ef172b84"
+  url="https://github.com/breuleux/jurigged"
+  source="github"
+  title="breuleux/jurigged"
+  savedAt="2026-05-13T17:50:53-07:00"
+  tags={["cli", "python"]}
+>
+
+**TL;DR.** Jurigged makes Python feel live-editable by hot-patching changed functions into a running process instead of forcing a restart.
+
+**Takeaways**
+
+- Run `jurigged script.py`, edit a function, save, and the running program picks up the new behavior.
+- Best for tight feedback loops in long-running scripts, REPL/Jupyter work, or expensive setup code you don’t want to reload.
+- The clever bit is also the limit: it swaps code pointers, but won’t re-run `__init__` or safely reshape existing object attributes.
+- --
+- Source type: GitHub repository
+- Title: breuleux/jurigged
+- URL: https://github.com/breuleux/jurigged
+- Tags: cli, python
+
+</Item>
+
+<Item
+  id="54b52e4ac2861f0ebabb489b090171f05227aaa1ee8e5402d6a4f6c554b24125"
+  url="https://github.com/breuleux/ovld"
+  source="github"
+  title="breuleux/ovld"
+  savedAt="2026-05-13T17:50:29-07:00"
+  tags={["multiple-dispatch", "python"]}
+>
+
+**TL;DR.** ovld brings fast, expressive multiple dispatch to Python without turning your code into nested `isinstance` soup.
+
+**Takeaways**
+
+- Lets you define separate function implementations by type signature, including multiple arguments, literals, keyword args, and value-based checks.
+- Useful for recursive data transforms, serializers, tree walkers, and APIs where behavior naturally branches by input shape.
+- The interesting edge is performance: it claims overhead close to ordinary type checks while supporting richer dispatch than `functools.singledispatch`.
+- --
+- Source type: GitHub repository
+- Title: breuleux/ovld
+- URL: https://github.com/breuleux/ovld
+- Tags: multiple-dispatch, python
+
+</Item>
+
+<Item
+  id="a3992ae8c884cd912b02c97d0ef3eec767933b5bcfb0d08876e985d0c2a6ba79"
+  url="https://github.com/erezsh/runtype"
+  source="github"
+  title="erezsh/runtype"
+  savedAt="2026-05-13T17:50:05-07:00"
+  tags={["pydantic", "python"]}
+>
+
+**TL;DR.** Runtype is a lightweight Python alternative to Pydantic for runtime type checks, typed dataclasses, and Julia-style multiple dispatch.
+
+**Takeaways**
+
+- Gives Python sharper runtime typing: smarter `isinstance`/`issubclass`, `typing` support, constraints, forward refs, and optional auto-casting.
+- Best fit for people who like dataclasses but want validation without pulling in a heavier model framework.
+- The interesting bit is breadth: it combines validation, dataclass ergonomics, custom type systems, and fast multiple dispatch in a no-dependency package.
+- --
+
+</Item>
+
+<Item
+  id="83a4ecaf319060359f3db5dd035391847374ca83ea015ff11c4a06f1c1c99750"
+  url="https://github.com/ZhangYiqun018/AvengersPro"
+  source="github"
+  title="ZhangYiqun018/AvengersPro"
+  savedAt="2026-05-13T17:49:41-07:00"
+  tags={["automation", "llm-agents", "python"]}
+>
+
+**TL;DR.** AvengersPro makes LLM routing a cost-quality optimization problem, sending each query to the model most likely to be worth its price.
+
+**Takeaways**
+
+- Clusters queries by semantic embeddings, then routes them across an ensemble of cheaper and stronger models.
+- Useful for teams running mixed-model stacks who care about both benchmark performance and inference spend.
+- Claims up to 7% accuracy over the best single model and up to 63% cost reduction for equivalent performance, with an MIT-licensed Python repo at 205 stars.
+
+</Item>
+
+<Item
+  id="5057b3c2e43090e1e5455ec2a178a6aed4c5ccc2d8b10db2761f4f22a411ebd0"
+  url="https://github.com/lotus-data/lotus"
+  source="github"
+  title="lotus-data/lotus"
+  savedAt="2026-05-13T17:49:12-07:00"
+  tags={["ai-integrations", "document-intelligence", "llm-agents"]}
+>
+
+**TL;DR.** LOTUS turns messy LLM data workflows into Pandas-style semantic operations for filtering, extracting, joining, and searching documents at scale.
+
+**Takeaways**
+
+- It adds “semantic operators” like `sem_filter`, `sem_map`, `sem_extract`, and `sem_join`, so natural-language transformations can sit directly inside Python data pipelines.
+- Best fit: teams building document extraction, RAG prep, or agentic data workflows where rows contain text, PDFs, webpages, or other fuzzy inputs.
+- Non-obvious detail: it pairs LLM calls with embeddings, FAISS, and query optimization, claiming up to 1000x speedups over naive LLM processing.
+- --
+
+</Item>
+
+<Item
+  id="595df9e27b32d2e66c2fdc0e7ee6c36d3951581a5aed29ce9c3509b84a73c088"
+  url="https://github.com/run-llama/semtools"
+  source="github"
+  title="run-llama/semtools"
+  savedAt="2026-05-13T17:48:43-07:00"
+  tags={["cli", "document-intelligence", "rust"]}
+>
+
+**TL;DR.** SemTools turns document parsing, semantic search, and Q&A over files into a fast Unix-friendly Rust CLI.
+
+**Takeaways**
+
+- It bundles four practical commands: `parse` for document-to-markdown, `search` for local embedding search, `ask` for AI Q&A over docs, and `workspace` for larger collections.
+- Best fit: people who want document intelligence in shell pipelines instead of another hosted app or heavyweight RAG framework.
+- Non-obvious split: search/workspace are local-only, but parsing defaults to LlamaParse and Q&A needs an OpenAI-compatible API.
+- --
+- Source type: GitHub repository
+- Title: run-llama/semtools
+- URL: https://github.com/run-llama/semtools
+- Tags: cli, document-intelligence, rust, similarity-search
+
+</Item>
+
+<Item
+  id="5eefeb0428292a66d74aed274728144821dc2ad06d392ba3959c5e4785ad257c"
+  url="https://github.com/miyuchina/mistletoe"
+  source="github"
+  title="miyuchina/mistletoe"
+  savedAt="2026-05-13T17:48:16-07:00"
+  tags={["python"]}
+>
+
+**TL;DR.** Mistletoe is a fast, hackable Python Markdown parser for people who want Markdown as an AST, not just HTML.
+
+**Takeaways**
+
+- Parses CommonMark in pure Python, with native support for tables and strikethrough.
+- Useful when you need custom Markdown transformations, alternate renderers, or document rewrites.
+- Core renderers include HTML, LaTeX, AST, and Markdown; contrib adds extras like MathJax and Pygments.
+- --
+
+</Item>
+
+<Item
+  id="a1e4c4772153d1c80cedf5fae2c30368d40f22ee8d7937ff71334eec0f3ddf7a"
+  url="https://github.com/asreview/synergy-dataset"
+  source="github"
+  title="asreview/synergy-dataset"
+  savedAt="2026-05-13T17:47:50-07:00"
+  tags={["ai-integrations", "document-intelligence", "python"]}
+>
+
+**TL;DR.** SYNERGY is a benchmark dataset for teaching AI to find the few relevant studies buried inside systematic-review search results.
+
+**Takeaways**
+
+- Packages 169,288 academic works across 26 systematic reviews, with only 1.67% labeled as included.
+- Useful for NLP, information retrieval, and document-screening models that need to perform under extreme class imbalance.
+- Data comes as OpenAlex-style work objects with rich metadata, and the CC0 license makes reuse unusually frictionless.
+- --
+
+</Item>
+
+<Item
+  id="bc88c6a57a61618872e0b8516364925a91fc5605b48201f2d2d6c5740fadbb39"
+  url="https://github.com/WojciechKusa/systematic-review-datasets"
+  source="github"
+  title="WojciechKusa/systematic-review-datasets"
+  savedAt="2026-05-13T17:47:27-07:00"
+  tags={["document-intelligence", "llm-agents", "python"]}
+>
+
+**TL;DR.** CSMeD is a benchmark bundle for testing automated citation-screening systems across both abstract and full-text review stages.
+
+**Takeaways**
+
+- Provides unified datasets for systematic-review automation, including CSMeD-basic, CSMeD-cochrane, and CSMeD-all for title/abstract screening.
+- Useful for document-intelligence and LLM-agent evals where the task is deciding which papers survive screening.
+- Full-text data is available too, but setup is heavier: API keys, GROBID, CORE/Semantic Scholar access, and a Cochrane cookie are needed.
+- --
+- Source type: GitHub repository
+- Title: WojciechKusa/systematic-review-datasets
+- URL: https://github.com/WojciechKusa/systematic-review-datasets
+
+</Item>
+
+<Item
+  id="e1cf95360a148e8e5e548d4a644a4bf66791241a60e2fd761e4117e27a2a5ee6"
+  url="https://github.com/expectedparrot/edsl"
+  source="github"
+  title="expectedparrot/edsl"
+  savedAt="2026-05-13T17:46:57-07:00"
+  tags={["llm-agents", "python", "social-simulation"]}
+>
+
+**TL;DR.** EDSL turns LLMs into survey respondents, labelers, and simulated research panels with reproducible Python workflows.
+
+**Takeaways**
+
+- It is built for computational social science, market research, and data labeling where you want many AI agents answering structured prompts.
+- The core value is declarative survey design: questions, personas, scenarios, skip logic, answer piping, and model selection without hand-rolling schemas.
+- The interesting catch is reproducibility: automatic caching and the Coop sharing layer make LLM experiments easier to rerun, audit, and collaborate on.
+- Treat the “AI demographics” angle carefully: personas model statistical patterns, not real populations.
+
+</Item>
+
+<Item
+  id="038e8ce279df79dc69790bc333088530728c53cd430b23dacad03e51e5370300"
+  url="https://github.com/modal-labs/libmodal"
+  source="github"
+  title="modal-labs/libmodal"
+  savedAt="2026-05-13T17:46:33-07:00"
+  tags={["ai-integrations", "typescript"]}
+>
+
+**TL;DR.** Modal’s old JS/Go SDK repo is now a migration signpost, not the place to build against.
+
+**Takeaways**
+
+- Use `modal-labs/modal-client` going forward; JS releases stay on the `modal` npm package, while Go moved to `github.com/modal-labs/modal-client/go`.
+- Go users need both a dependency update and import-path rewrite from `libmodal/modal-go` to `modal-client/go`.
+- The repo still points to community SDKs like Ruby, but those are unofficial and unsupported.
+- --
+- Source type: GitHub repository
+
+</Item>
+
+<Item
+  id="d8b9c390c0f82b1ea0c4e52a9bd6f66d346dca1bcb999b7b57f12d09b229002b"
+  url="https://github.com/arrow-py/arrow"
+  source="github"
+  title="arrow-py/arrow"
+  savedAt="2026-05-13T17:45:54-07:00"
+  tags={["api", "automation", "bookmark"]}
+  stars={9000}
+>
+
+**TL;DR.** Arrow makes Python datetime work feel sane: fewer imports, clearer APIs, and human-friendly timezone handling.
+
+**Takeaways**
+
+- It wraps date/time creation, parsing, formatting, conversion, shifting, and humanized strings behind one ergonomic API.
+- Best fit for Python projects where raw `datetime`, `time`, and timezone handling create too much boilerplate.
+- Mature and active enough to trust: 9k+ GitHub stars, Python 3.8+ support, and broad localization support.
+- --
+- Source type: GitHub repository
+- Title: arrow-py/arrow
+- URL: https://github.com/arrow-py/arrow
+- Tags: api, automation, bookmark, coding, framework-comparison, llm-agents, python
+
+</Item>
+
+<Item
+  id="36e3469e97b0aeed3a0cb1e7b67625416c3af9080f506c3b34e3eb2e97595ab8"
+  url="https://github.com/cloudflare/capnweb"
+  source="github"
+  title="cloudflare/capnweb"
+  savedAt="2026-05-13T17:45:29-07:00"
+  tags={["api", "rpc", "typescript"]}
+>
+
+**TL;DR.** Cap’n Web brings object-capability RPC to plain TypeScript with almost no ceremony.
+
+**Takeaways**
+
+- It lets JavaScript apps pass objects and functions by reference over HTTP, WebSocket, or `postMessage`, enabling true bidirectional RPC.
+- It is built for web-stack developers who want typed RPC without schemas, codegen, or Cap’n Proto-style setup.
+- The neat trick is promise pipelining: dependent remote calls can collapse into one network round trip.
+- Small and portable: under 10kB compressed, no dependencies, and runs across browsers, Workers, Node, Bun, and Deno.
+- --
+- Source type: GitHub repository
+- Title: cloudflare/capnweb
+- URL: https://github.com/cloudflare/capnweb
+- Tags: api, rpc, typescript
+
+</Item>
+
+<Item
+  id="040e453575ce7274fee2056b8d169d6b4ae905d6903205d106a775c28d3ebb93"
+  url="https://github.com/bazzalabs/ui"
+  source="github"
+  title="bazzalabs/ui"
+  savedAt="2026-05-13T17:45:06-07:00"
+  tags={["react-library", "typescript"]}
+  stars={800}
+>
+
+**TL;DR.** bazza/ui is an MIT-licensed TypeScript React component library aiming for polished, ready-to-use modern UI primitives.
+
+**Takeaways**
+
+- Built for React developers who want hand-crafted components without starting from scratch.
+- The project has decent early traction: 805 stars, 27 forks, and 8 open issues.
+- Docs are live, but contribution guidance is still “coming soon,” so adoption looks easier than contributing right now.
+- --
+
+</Item>
+
+<Item
+  id="a79961a8c9703ae816b22cac6358802baa27f7c90db5993de555276296315d44"
+  url="https://github.com/TanStack/router"
+  source="github"
+  title="TanStack/router"
+  savedAt="2026-05-13T17:44:44-07:00"
+  tags={["browser", "react-library", "typescript"]}
+  stars={14000}
+>
+
+**TL;DR.** TanStack Router is trying to make routing a type-safe data layer, not just URL plumbing.
+
+**Takeaways**
+
+- Gives React apps end-to-end type safety across routes, params, search params, loaders, caching, prefetching, and invalidation.
+- Best fit for TypeScript-heavy teams that want router state, data loading, nested layouts, and error boundaries to feel cohesive instead of bolted together.
+- TanStack Start extends it into a full-stack framework with SSR, streaming, and server functions, making this more than a router repo.
+- --
+- Source type: GitHub repository
+- Title: TanStack/router
+- URL: https://github.com/TanStack/router
+- Tags: browser, react-library, typescript
+
+</Item>
+
+<Item
+  id="f1ad73af9bd21cc57b4f2dbb34b52dcb0db42983eda96ce57533e118f08d0fe7"
+  url="https://github.com/tldraw/tldraw"
+  source="github"
+  title="tldraw/tldraw"
+  savedAt="2026-05-13T17:44:19-07:00"
+  tags={["ai-integrations", "automation", "canvas"]}
+>
+
+**TL;DR.** tldraw is the React infinite-canvas SDK to reach for when you want Figma-like whiteboarding, multiplayer, or AI agents without building the canvas engine yourself.
+
+**Takeaways**
+
+- Gives React apps a full canvas stack: drawing, shapes, rich text, arrows, snapping, embeds, custom tools, and UI extension points.
+- Strong fit for whiteboards, visual programming, canvas chat, multiplayer collaboration, and agent-driven interfaces.
+- The starter kits are MIT-licensed, but production SDK use needs a license key; the repo is very active with ~47k stars.
+- --
+
+</Item>
+
+<Item
+  id="515d2365f08a1dcb76dab79fdf71f9d1a8e3c6b85588fc2bdcd24bab63c8744c"
+  url="https://github.com/humanlayer/humanlayer"
+  source="github"
+  title="humanlayer/humanlayer"
+  savedAt="2026-05-13T17:43:58-07:00"
+  tags={["automation", "context-engineering", "llm-agents"]}
+>
+
+**TL;DR.** CodeLayer is a keyboard-first control center for running AI coding agents against messy real-world codebases.
+
+**Takeaways**
+
+- It wraps Claude Code with workflows for orchestrating multiple agent sessions, including worktrees and remote cloud workers.
+- Best fit: teams already pushing hard on AI-first development and hitting coordination/context limits.
+- Non-obvious signal: strong traction for a devtool repo, with 10k+ stars, Apache 2 licensing, and a clear “context engineering” thesis behind the product.
+- --
+
+</Item>
+
+<Item
+  id="a5e45a2d7eeaafe40d0b123d2798ebcd0ae343a7836082960ccb721684c6ed0d"
+  url="https://github.com/cloudflare/vibesdk"
+  source="github"
+  title="cloudflare/vibesdk"
+  savedAt="2026-05-13T17:43:32-07:00"
+  tags={["automation", "llm-agents", "react-library"]}
+>
+
+**TL;DR.** Cloudflare open-sourced a “build your own Lovable” stack for generating, previewing, and deploying full-stack AI apps on Workers.
+
+**Takeaways**
+
+- Generates React/TypeScript/Tailwind apps from natural-language prompts, with chat-based iteration, sandboxed live previews, and one-click deploys.
+- Best fit for teams or SaaS products that want to offer AI app-building inside their own platform, not just end users looking for a hosted coding assistant.
+- Deeply tied to Cloudflare’s stack: Workers, Durable Objects, D1, AI Gateway, Workers for Platforms, plus a required paid plan and Gemini API key.
+- --
+
+</Item>
+
+<Item
+  id="9c3651e66307857181be817585d422403ef7ac136cc5e2e94d722a153e36e467"
+  url="https://github.com/ln-dev7/circle"
+  source="github"
+  title="ln-dev7/circle"
+  savedAt="2026-05-13T17:43:09-07:00"
+  tags={["react-library", "task-management", "typescript"]}
+  stars={2400}
+>
+
+**TL;DR.** Circle is a polished Linear-style project management UI template for teams that want issues, projects, and team tracking without starting from scratch.
+
+**Takeaways**
+
+- Built with Next.js, TypeScript, shadcn/ui, and Tailwind, so it is easiest to adapt if your stack already lives in modern React.
+- Best fit: founders or product teams who want a ready-made project-management interface, not a full backend-heavy Linear replacement.
+- The repo has real signal: 2.4k+ stars, 272 forks, and only a handful of open issues.
+- --
+
+</Item>
+
+<Item
+  id="7c1cd1cd2b53aab8d62fba40f98ab1ae8375fa41d6ea3e742db9485573948eea"
+  url="https://github.com/repomirrorhq/repomirror"
+  source="github"
+  title="repomirrorhq/repomirror"
+  savedAt="2026-05-13T17:42:49-07:00"
+  tags={["automation", "llm-agents", "typescript"]}
+>
+
+**TL;DR.** Repomirror is an AI codebase-transformation tool aimed at turning whole repositories into new ports, clones, or framework variants.
+
+**Takeaways**
+
+- It is built in TypeScript for applying AI-driven changes across software projects, not just editing single files.
+- Best fit: developers experimenting with large-scale repo migrations, language ports, or automated project forks.
+- The example projects show the pattern clearly: browser-use to TypeScript, Vercel AI SDK to Python, assistant-ui-react to Vue.
+- --
+
+</Item>
+
+<Item
+  id="444de62a1a4713bf14a41b68fac49a84b83f5d5b1e021405846271db27126a0d"
+  url="https://github.com/keenthemes/reui"
+  source="github"
+  title="keenthemes/reui"
+  savedAt="2026-05-13T17:42:27-07:00"
+  tags={["design-assets", "react-library", "typescript"]}
+>
+
+**TL;DR.** ReUI is a copy-and-own shadcn expansion pack for teams building serious React dashboards fast.
+
+**Takeaways**
+
+- Adds 1,000+ examples plus custom primitives like Data Grid, Kanban, Filters, Tree, Timeline, and Stepper.
+- Best fit for product teams already using shadcn/ui, Tailwind, and TypeScript who want dashboard-grade patterns without vendor lock-in.
+- The non-obvious hook: it supports both Radix UI and Base UI versions, and installs piece-by-piece through the shadcn CLI.
+
+</Item>
+
+<Item
+  id="df2e008060161b8737c23975d7133686c82a68369ee4a4aa195caf18aa456b3f"
+  url="https://github.com/UKGovernmentBEIS/inspect_ai"
+  source="github"
+  title="UKGovernmentBEIS/inspect_ai"
+  savedAt="2026-05-13T17:42:03-07:00"
+  tags={["context-engineering", "llm-agents", "playbooks"]}
+>
+
+**TL;DR.** Inspect is a serious evals workbench for teams that need to test LLM agents, tools, dialogs, and model-graded behavior with reproducible Python workflows.
+
+**Takeaways**
+
+- Built by the UK AI Security Institute, it bundles prompt engineering, tool use, multi-turn dialog, scoring, and 200+ ready-made evaluations.
+- Best for researchers, safety teams, and agent builders who need more than ad hoc benchmark scripts.
+- The repo is active and substantial: 2k+ stars, 500+ forks, Python core, Quarto docs, and a TypeScript web UI tucked into a submodule.
+- --
+
+</Item>
+
+<Item
+  id="d0cf3c96bbda8abb8ba928572e2716653d153cadcb74c943a33748a839f7fa02"
+  url="https://github.com/shuding/nextra"
+  source="github"
+  title="shuding/nextra"
+  savedAt="2026-05-13T17:41:39-07:00"
+  tags={["react-library", "typescript"]}
+>
+
+**TL;DR.** Nextra is the “Next.js-native docs/site generator” bet: simple enough for docs, flexible enough to become a polished content site.
+
+**Takeaways**
+
+- Built for teams already in the React/Next.js world who want docs, blogs, or content-heavy sites without assembling the stack from scratch.
+- The repo is active and substantial: TypeScript monorepo, PNPM Workspaces, Turborepo, docs theme, examples, and watch-mode development loops.
+- Non-obvious signal: 13.7k stars and 321 open issues suggests real adoption, but also a project with meaningful maintenance surface.
+- --
+
+</Item>
+
+<Item
+  id="8982a724787770ee1be32f2788baeb8dfb6e61a5d1eb48aeda3285b373231440"
+  url="https://github.com/FormidableLabs/react-live"
+  source="github"
+  title="FormidableLabs/react-live"
+  savedAt="2026-05-13T17:41:17-07:00"
+  tags={["react-library", "react-playground", "typescript"]}
+>
+
+**TL;DR.** React Live gives docs and prototypes an editable React sandbox without forcing you into a fixed playground UI.
+
+**Takeaways**
+
+- Renders live React components from editable source, making it useful for component docs, demos, and quick prototyping.
+- Built modularly so teams can compose and style the editor, preview, and error surfaces themselves.
+- Mature and active: TypeScript repo, ~4.6k stars, active maintenance, and UMD/CJS/ESM builds.
+- --
+
+</Item>
+
+<Item
+  id="9a9f9c77d0c8f5df3cf8c4d0d950aa23d489ce706cdb0879fc6100bb8edefba0"
+  url="https://github.com/chiuhans111/fluidglass"
+  source="github"
+  title="chiuhans111/fluidglass"
+  savedAt="2026-05-13T17:40:54-07:00"
+  tags={["fluid-simulation", "glsl", "shader"]}
+>
+
+**TL;DR.** Fluidglass turns WebGL shader math into a tweakable, liquid-glass playground.
+
+**Takeaways**
+
+- Combines reaction diffusion, Navier-Stokes, and a glass shader to create interactive fluid visuals in the browser.
+- Best for shader/WebGL folks looking for an aesthetic reference or remixable visual toy, not a packaged UI library.
+- URL parameters expose the fun parts: colors, shadows, brightness, feed/kill rates, and iteration count for quick theme experiments.
+- --
+- Source type: GitHub repository
+- Title: chiuhans111/fluidglass
+- URL: https://github.com/chiuhans111/fluidglass
+- Tags: fluid-simulation, glsl, shader
+
+</Item>
+
+<Item
+  id="cc02306a14a960fc0f4120084ca319f5d9b4665ea16c9b79c48eeab1d5bdbac7"
+  url="https://github.com/Vijayabaskar56/tancn"
+  source="github"
+  title="Vijayabaskar56/tancn"
+  savedAt="2026-05-13T17:40:31-07:00"
+  tags={["react-library", "typescript"]}
+>
+
+**TL;DR.** TANCN turns TanStack forms and tables into a drag-and-drop builder that exports type-safe React code.
+
+**Takeaways**
+
+- Builds dynamic forms and data grids with live preview, ShadCN styling, Zod validation, multi-step flows, field arrays, and advanced filters.
+- Best for React/TypeScript teams that want generated code they can own, not a hosted no-code form backend.
+- Forked from formcn.dev, built on React 19/Vite/Bun, and has meaningful GitHub traction with 656 stars and 37 forks.
+- --
+
+</Item>
+
+<Item
+  id="646d2b9d1b6d8e8a67a9eda51eed21a7bcd19e630b25a897d4a59d34b75c7d90"
+  url="https://github.com/ksdme/ut"
+  source="github"
+  title="ksdme/ut"
+  savedAt="2026-05-13T17:38:41-07:00"
+  tags={["automation", "cli", "coding"]}
+>
+
+**TL;DR.** `ut` is a Rust-powered Swiss army knife for developers who want common web, crypto, text, and network utilities in one fast CLI.
+
+**Takeaways**
+
+- Bundles everyday tasks like Base64/URL encoding, hashing, JWT handling, regex testing, JSON building, diffs, date conversion, QR generation, and local file serving.
+- Best for developers and IT folks who prefer terminal-native tools over hopping between random utility websites.
+- Already has meaningful traction for a small CLI: ~1.2k stars, cross-platform installs, and shell completions for most major shells.
+
+</Item>
+
+<Item
+  id="d38431da0d665a9ee2f9551fcece233a4e8b7f3eacd31fe75011af98cb49a6f3"
+  url="https://github.com/router-for-me/CLIProxyAPI"
+  source="github"
+  title="router-for-me/CLIProxyAPI"
+  savedAt="2026-05-13T17:38:18-07:00"
+  tags={["api", "cli", "coding"]}
+>
+
+**TL;DR.** CLIProxyAPI turns AI coding CLIs into one OpenAI/Gemini/Claude-compatible API layer for people who want local, multi-provider agent routing without rewriting their clients.
+
+**Takeaways**
+
+- Wraps Gemini CLI, Claude Code, Codex, Antigravity, and others behind familiar API interfaces with streaming, function calling, multimodal input, and model mapping.
+- Best for power users running agent tools locally or across multiple accounts who want SDK-compatible access and provider failover/load balancing.
+- The repo is very active/popular, but usage stats were removed after v6.10.0, so serious users need external account/usage tracking.
+- --
+- Source type: GitHub repository
+- Title: router-for-me/CLIProxyAPI
+- URL: https://github.com/router-for-me/CLIProxyAPI
+
+</Item>
+
+<Item
+  id="86c37a07a454f268a37f7a58aa2820433104e5c0e611513adef4b9aee5e23e91"
+  url="https://github.com/iamvishnusankar/next-sitemap"
+  source="github"
+  title="iamvishnusankar/next-sitemap"
+  savedAt="2026-05-13T17:37:56-07:00"
+  tags={["typescript"]}
+>
+
+**TL;DR.** `next-sitemap` turns Next.js SEO plumbing into a build-step config instead of a hand-maintained XML chore.
+
+**Takeaways**
+
+- Generates `sitemap.xml`, split/index sitemaps, and `robots.txt` for static, dynamic, pre-rendered, and server-side Next.js pages.
+- Best for Next.js apps that want reliable search indexing without custom sitemap infrastructure.
+- The useful power feature is programmability: `transform`, `additionalPaths`, and server-side sitemap APIs let CMS-backed or fast-changing pages stay current.
+- --
+
+</Item>
+
+<Item
+  id="c9639864b006ec30efa1fffdbbd7a74b4b8761842b9c811fb684a8e45b042fe7"
+  url="https://github.com/firecrawl/fire-enrich"
+  source="github"
+  title="firecrawl/fire-enrich"
+  savedAt="2026-05-13T17:37:34-07:00"
+  tags={["api", "automation", "llm-agents"]}
+>
+
+**TL;DR.** Fire Enrich turns a raw email list into cited company intel by chaining Firecrawl scraping with specialized GPT-powered research agents.
+
+**Takeaways**
+
+- Upload a CSV of corporate emails, pick enrichment fields, and stream results for company profiles, funding data, tech stacks, and other firmographic details.
+- Built for sales, recruiting, research, and ops workflows where an email domain needs to become a usable account profile.
+- The interesting bit is the sequential multi-agent design: Discovery, Company Profile, Financial Intel, Tech Stack, and General Purpose agents each add context before GPT-4o consolidates structured outputs.
+- --
+- Source type: GitHub repository
+- Title: firecrawl/fire-enrich
+- URL: https://github.com/firecrawl/fire-enrich
+- Tags: api, automation, llm-agents, typescript
+
+</Item>
+
+<Item
+  id="7a166475962ab7ab7fb61793cd1ab12fb9b4052bf2fbfe5eccc0637af1f15ce2"
+  url="https://github.com/cosscom/coss"
+  source="github"
+  title="cosscom/coss"
+  savedAt="2026-05-13T17:37:13-07:00"
+  tags={["design-assets", "react-library", "typescript"]}
+>
+
+**TL;DR.** Cal.com’s design system is now a public TypeScript monorepo for copy-pasteable, accessible React UI.
+
+**Takeaways**
+
+- Includes the main coss.com site, UI docs/library, shared packages, and the legacy Origin UI component set.
+- Built for React teams using Base UI and Tailwind CSS, with a “copy-paste” component philosophy rather than a sealed black-box package.
+- Licensing is mixed: Origin/UI apps are MIT, while the rest of the monorepo is AGPLv3.
+- --
+- Source type: GitHub repository
+- Title: cosscom/coss
+- URL: https://github.com/cosscom/coss
+- Tags: design-assets, react-library, typescript
+
+</Item>
+
+<Item
+  id="90930c88ba9329e07b6c3ce3c7b90deebdd72f362eb4ba9345c97e68946d64b6"
+  url="https://github.com/evilmartians/agent-prism"
+  source="github"
+  title="evilmartians/agent-prism"
+  savedAt="2026-05-13T17:36:47-07:00"
+  tags={["llm-agents", "react-library", "typescript"]}
+>
+
+**TL;DR.** AgentPrism turns messy AI-agent trace JSON into React-native debugging timelines you can actually inspect.
+
+**Takeaways**
+
+- It visualizes LLM calls, tool runs, retries, and nested agent workflows as hierarchical trace diagrams.
+- Best fit: teams already on React/TypeScript who want custom agent observability UI instead of another hosted dashboard.
+- Alpha status matters: React 19 + Tailwind 3 required, APIs may shift, and it expects structured trace data like OpenTelemetry GenAI attributes.
+
+</Item>
+
+<Item
+  id="c00396a3edcedc22111afe937284cf5f6e8f7f0e03309f09e4445ee6afe75104"
+  url="https://github.com/paper-design/shaders"
+  source="github"
+  title="paper-design/shaders"
+  savedAt="2026-05-13T17:36:23-07:00"
+  tags={["canvas", "design-assets", "react-library"]}
+>
+
+**TL;DR.** Paper Shaders turns polished canvas effects into copy-pasteable React or vanilla code for designers who want visuals that actually ship.
+
+**Takeaways**
+
+- Provides zero-dependency HTML canvas shaders like mesh gradients and dot orbits, configurable in code or designed visually in Paper.
+- Best for designers and frontend teams adding animated backgrounds, texture, masks, or visual accents without pulling in a heavy rendering stack.
+- Useful but not fully permissive: the PolyForm Shield license allows broad commercial use, but restricts competing with Paper and requires attribution.
+
+</Item>
+
+<Item
+  id="e3a9bfdc2802c0437e5bfc748c43101be33326403f5eb48146d770e136d1275d"
+  url="https://github.com/xyflow/xyflow"
+  source="github"
+  title="xyflow/xyflow"
+  savedAt="2026-05-13T17:35:57-07:00"
+  tags={["canvas", "react-library", "typescript"]}
+>
+
+**TL;DR.** xyflow is the go-to TypeScript toolkit for building polished node-based editors in React or Svelte without starting from scratch.
+
+**Takeaways**
+
+- Ships as a monorepo covering React Flow 12, legacy React Flow 11, Svelte Flow, and shared system helpers.
+- Best for workflow builders, visual programming tools, automation canvases, and any app that needs draggable connected nodes.
+- MIT-licensed for personal use, with Pro/sponsorship paths for commercial teams that want to support the maintainers.
+
+</Item>
+
+<Item
+  id="58a04d37296295955b4fc9f7942a098b2a020c5f46b102c8aed0f05c6d3285fd"
+  url="https://github.com/relai-ai/relai-sdk"
+  source="github"
+  title="relai-ai/relai-sdk"
+  savedAt="2026-05-13T17:35:33-07:00"
+  tags={["api", "llm-agents", "python"]}
+>
+
+**TL;DR.** RELAI turns agent development into a testable loop: simulate behavior, evaluate failures, and optimize prompts or agent structure.
+
+**Takeaways**
+
+- Built for teams shipping AI agents who need controlled simulations, mock tools/MCP servers, synthetic data, and repeatable benchmarks.
+- Critico converts human reviews into reusable evaluations that can run in CI, making agent QA less vibes-based.
+- Maestro goes beyond prompt tuning by using evaluator feedback to suggest model, tool, config, or graph-level changes.
+- --
+- Source type: GitHub repository
+- Title: relai-ai/relai-sdk
+- URL: https://github.com/relai-ai/relai-sdk
+
+</Item>
+
+<Item
+  id="1dbbe7ced0eeca8ad7d774acf837b24769e1dd85222fba8e43e889fa40265233"
+  url="https://github.com/dip/cmdk"
+  source="github"
+  title="dip/cmdk"
+  savedAt="2026-05-13T17:35:07-07:00"
+  tags={["react-library", "typescript"]}
+>
+
+**TL;DR.** cmdk is the unstyled React command-menu primitive you reach for when you want fast ⌘K UX without inheriting someone else’s design system.
+
+**Takeaways**
+
+- It gives you composable building blocks for command menus and accessible comboboxes: Dialog, Input, List, Group, Item, Empty, Separator.
+- Best for React/TypeScript apps that want custom styling and behavior while outsourcing filtering, sorting, keyboard navigation, and accessibility.
+- It skips virtualization, but is still tuned for roughly 2,000-3,000 items; beyond that, you’ll need your own strategy.
+- --
+
+</Item>
+
+<Item
+  id="863c161149efd8d4b98b4511b1a6cf06001fb6bc0d0c913fa9fb06cf273a054d"
+  url="https://github.com/toon-format/toon"
+  source="github"
+  title="toon-format/toon"
+  savedAt="2026-05-13T17:34:38-07:00"
+  tags={["cli", "context-engineering", "llm-agents"]}
+>
+
+**TL;DR.** TOON is a JSON-compatible prompt format that trades syntax noise for LLM-friendly structure and lower token bills.
+
+**Takeaways**
+
+- Encodes JSON as indentation plus CSV-like tables, especially strong for uniform arrays of objects.
+- Built for LLM inputs, not general storage: lossless round-trips make it usable as a drop-in translation layer.
+- Claims roughly 40% fewer tokens with slightly better mixed-structure benchmark accuracy than JSON.
+- Less useful for deeply nested, irregular data, or pure flat tables where JSON/CSV already fit better.
+
+</Item>
+
+<Item
+  id="54d4f80144fb862dc2eea182986563009aea8a758811ea74f999c7c7bc18a461"
+  url="https://github.com/openpcc/openpcc"
+  source="github"
+  title="openpcc/openpcc"
+  savedAt="2026-05-13T17:34:10-07:00"
+  tags={["privacy"]}
+>
+
+**TL;DR.** OpenPCC is trying to make “private AI inference” auditable infrastructure instead of a vendor promise.
+
+**Takeaways**
+
+- It wraps AI requests with encrypted streaming, hardware attestation, and OHTTP so prompts, outputs, and logs stay hidden from compute providers.
+- Best for teams that want to run open or custom models with stronger privacy guarantees on their own infrastructure.
+- Non-obvious detail: it is inspired by Apple Private Cloud Compute, but open and community-governed, with Confident Security building a managed version on top.
+- --
+- Source type: GitHub repository
+- Title: openpcc/openpcc
+- URL: https://github.com/openpcc/openpcc
+- Tags: privacy
+
+</Item>
+
+<Item
+  id="6d140511b1aff452cb7dc483c83df677c84e02fe83001af3639b9484bc42ca94"
+  url="https://github.com/tobi/try"
+  source="github"
+  title="tobi/try"
+  savedAt="2026-05-13T17:33:46-07:00"
+  tags={["cli", "coding"]}
+>
+
+**TL;DR.** `try` gives every throwaway coding experiment a dated, searchable home so your 2am prototypes stop disappearing.
+
+**Takeaways**
+
+- It centralizes scratch projects into date-prefixed directories like `2025-08-17-redis-experiment`, then lets you jump back with fuzzy search.
+- Best for developers who constantly spin up tests, clones, and half-formed ideas across `/tmp`, Desktop, and random project folders.
+- Nice detail: it is a zero-dependency, one-file Ruby script with Git clone/worktree support, so the workflow stays lightweight instead of becoming another project manager.
+
+</Item>
+
+<Item
+  id="fa06bc164028d58526ba9e1b85279106c017bb0f15bc352694ee3b238f0ff0a8"
+  url="https://github.com/bgreenwell/xleak"
+  source="github"
+  title="bgreenwell/xleak"
+  savedAt="2026-05-13T17:33:18-07:00"
+  tags={["cli", "rust", "spreadsheet"]}
+>
+
+**TL;DR.** `xleak` is a Rust TUI for opening, searching, and exporting spreadsheets without ever leaving the terminal.
+
+**Takeaways**
+
+- Handles `.xlsx`, `.xls`, and `.ods` with interactive sheet navigation, search, formula display, clipboard support, and CSV/JSON export.
+- Built for terminal-first workflows: quick previews, large-file inspection via lazy loading, and bulk conversion without Excel.
+- Mature enough to watch: MIT-licensed, Rust/ratatui-based, and already has 1.3k+ GitHub stars.
+- --
+
+</Item>
+
+<Item
+  id="d3e878973b5b9d4c824351f42f80cd04bb681f2f3def67c71f66719b95ec9634"
+  url="https://github.com/realvjy/coolshapes-react"
+  source="github"
+  title="realvjy/coolshapes-react"
+  savedAt="2026-05-13T17:32:47-07:00"
+  tags={["design-assets", "react-library", "typescript"]}
+>
+
+**TL;DR.** Drop-in gradient SVG shapes for React when you want playful visual texture without designing assets from scratch.
+
+**Takeaways**
+
+- Ships 115 abstract SVG shapes across categories like stars, ellipses, polygons, flowers, and numbers.
+- Built for React/TypeScript projects, with global and category-specific components plus `size`, `noise`, `index`, and randomization props.
+- MIT-licensed and design-friendly, with a Figma file included for matching implementation to mockups.
+- --
+- Source type: GitHub repository
+
+</Item>
+
+<Item
+  id="6d29ab2bc3c5a6e56b6b65c550f26e122fc1a75c79f8ffa2d77f08720fe89ea1"
+  url="https://github.com/JohannesKlauss/react-hotkeys-hook"
+  source="github"
+  title="JohannesKlauss/react-hotkeys-hook"
+  savedAt="2026-05-13T17:32:18-07:00"
+  tags={["browser", "typescript"]}
+>
+
+**TL;DR.** A small TypeScript hook turns React keyboard shortcuts into scoped, declarative component behavior.
+
+**Takeaways**
+
+- `useHotkeys` maps combos like `ctrl+k` directly to callbacks inside React components.
+- `HotkeysProvider` adds scopes, so complex apps can avoid shortcut collisions across modals, editors, and views.
+- Useful for React apps with power-user workflows; MIT-licensed and moderately active with 3.4k+ stars.
+- --
+
+</Item>
+
+<Item
+  id="b32b6a7ae90fbcd6d1d0272f66afd80dabaa5b2f2e8fff70703016a5244bbf49"
+  url="https://github.com/openstatusHQ/time-picker"
+  source="github"
+  title="openstatusHQ/time-picker"
+  savedAt="2026-05-13T17:31:57-07:00"
+  tags={["typescript"]}
+  stars={865}
+>
+
+**TL;DR.** A drop-in Shadcn UI time picker gives React apps a clean hours/minutes/seconds input without inventing the widget from scratch.
+
+**Takeaways**
+
+- Built for TypeScript + Shadcn UI projects that need a simple, polished time selection component.
+- The UI uses separate numeric fields for hours, minutes, and seconds, plus a clock affordance.
+- With 865 stars and 30 forks, it has enough traction to be worth checking before rolling your own.
+- --
+
+</Item>
+
+<Item
+  id="be09010ef5a2407d91a4b92ade54b5581c6fc979a0245b57feff4e9d1dec9a28"
+  url="https://github.com/plhery/node-twitter-api-v2"
+  source="github"
+  title="plhery/node-twitter-api-v2"
+  savedAt="2026-05-13T17:31:29-07:00"
+  tags={["api", "typescript", "x"]}
+>
+
+**TL;DR.** A lightweight, strongly typed Node client for X/Twitter APIs that covers the boring hard parts: auth, pagination, streaming, and media uploads.
+
+**Takeaways**
+
+- Best fit for TypeScript projects that need a real X API wrapper instead of hand-rolled fetch calls.
+- Supports both v1.1 and v2, with OAuth 1.0a, OAuth2 user-context, Basic auth, streams, paginators, and media helpers.
+- Mature but exposed to Twitter/X API churn: 1.5k+ stars, active maintenance, and 45 open issues.
+- --
+- Source type: GitHub repository
+- Title: plhery/node-twitter-api-v2
+- URL: https://github.com/plhery/node-twitter-api-v2
+- Tags: api, typescript, x
+
+</Item>
+
+<Item
+  id="b0ad79ebc8be41598d0feb4d52e5e6107ecc2a0dbf98dc764de711b2b72fef0b"
+  url="https://github.com/zenbase-ai/code-voyager"
+  source="github"
+  title="zenbase-ai/code-voyager"
+  savedAt="2026-05-13T17:31:03-07:00"
+  tags={["cli", "context-engineering", "llm-agents"]}
+>
+
+**TL;DR.** Code Voyager turns Claude Code into a compounding assistant by giving it local memory, task planning, and reusable skills.
+
+**Takeaways**
+
+- It adds five mechanisms: session memory, curriculum planning, skill creation, semantic skill search, and feedback-driven skill refinement.
+- It is aimed at Claude Code users who repeatedly teach the assistant the same project patterns across sessions.
+- The repo is early but concrete: Python, 10 stars, local-only artifacts under `.claude/`, and hook-based integration through `.claude/settings.json`.
+- --
+- Source type: GitHub repository
+- Title: zenbase-ai/code-voyager
+- URL: https://github.com/zenbase-ai/code-voyager
+
+</Item>
+
+<Item
+  id="72db9cbc4045803266002b8c6e469e37f751e644ea804eaa2f6d43849e47968b"
+  url="https://github.com/ephraimduncan/blocks"
+  source="github"
+  title="ephraimduncan/blocks"
+  savedAt="2026-05-13T17:30:42-07:00"
+  tags={["cli", "typescript"]}
+  stars={1500}
+>
+
+**TL;DR.** A polished shadcn-compatible block registry gives React/Tailwind teams copy-pasteable UI without starting every auth form, dialog, or sidebar from scratch.
+
+**Takeaways**
+
+- Built for teams already using React, Tailwind, and shadcn/ui who want accessible, customizable components fast.
+- Install blocks through the shadcn CLI by adding the `@blocks-so` remote registry to `components.json`.
+- MIT-licensed and already has real traction: 1.5k+ stars, 147 forks, and low open-issue count.
+
+</Item>
+
+<Item
+  id="33f0ba449646b6d2b43648ce7600190697c2ae72fd4394faabc0a9f076bf6e89"
+  url="https://github.com/remorses/playwriter"
+  source="github"
+  title="remorses/playwriter"
+  savedAt="2026-05-13T17:30:19-07:00"
+  tags={["browser", "cli", "framework-comparison"]}
+>
+
+**TL;DR.** Playwriter gives agents a way to drive your real, logged-in Chrome instead of a disposable automation browser.
+
+**Takeaways**
+
+- It pairs a Chrome extension with a CLI/MCP bridge so agents can run Playwright snippets against an existing browser session.
+- Best for browser automation where cookies, extensions, logged-in state, or bot-detection avoidance matter.
+- The core tradeoff is power versus trust: it exposes full Playwright control, gated by local connections, origin checks, and per-tab user consent.
+
+</Item>
+
+<Item
+  id="fed97f0d37647c604e00f6525ed82cd0b13fc181b94349f3cde7e5112e979c36"
+  url="https://github.com/dvdsgl/claude-canvas"
+  source="github"
+  title="dvdsgl/claude-canvas"
+  savedAt="2026-05-13T17:29:55-07:00"
+  tags={["canvas", "llm-agents", "typescript"]}
+>
+
+**TL;DR.** Claude Canvas gives coding agents a real terminal “screen” to work inside, turning Claude Code from chat into something closer to an interactive desktop operator.
+
+**Takeaways**
+
+- It’s a TypeScript TUI toolkit that lets Claude Code spawn split-pane interfaces for tasks like email, calendars, flights, and other tool-heavy workflows.
+- Built for Claude Code power users experimenting with agent UX, not production teams; the repo explicitly calls itself an unsupported proof of concept.
+- The implementation depends on Bun and tmux, which is a sharp but pragmatic stack for fast terminal-native prototypes.
+- --
+
+</Item>
+
+<Item
+  id="83e0e833f0504fcd0e6b7f45deb1048c5e22530b0dc4dc4e54d647a4d199acd8"
+  url="https://github.com/kepano/obsidian-skills"
+  source="github"
+  title="kepano/obsidian-skills: Agent skills for Obsidian. Teach your agent to use Mark…"
+  savedAt="2026-05-13T17:29:27-07:00"
+  tags={["canvas", "cli", "llm-agents"]}
+>
+
+**TL;DR.** Obsidian is becoming a first-class agent workspace, with reusable skills for Markdown, Bases, JSON Canvas, CLI work, and clean web extraction.
+
+**Takeaways**
+
+- Gives skills-compatible agents a concrete Obsidian toolkit: edit Obsidian Markdown, build Bases, create JSON Canvas files, and work with vault/plugin/theme workflows through the CLI.
+- Best for people who already use Obsidian as a knowledge base and want agents to write in native vault formats instead of generic Markdown.
+- The repo follows the Agent Skills spec, so it can be installed across Claude Code, Codex CLI, OpenCode, and marketplace-style skill managers.
+- --
+
+</Item>
+
+<Item
+  id="df5e680572955a4d18b13c80f40c2bde2eecc3ac439c6c0a4eb1361a78cda4b4"
+  url="https://github.com/ZeframLou/call-me"
+  source="github"
+  title="ZeframLou/call-me"
+  savedAt="2026-05-13T17:28:58-07:00"
+  tags={["api", "llm-agents", "typescript"]}
+>
+
+**TL;DR.** Claude Code can now ring your phone when it finishes, gets stuck, or needs a decision.
+
+**Takeaways**
+
+- It runs as a local MCP server that gives Claude tools to start calls, continue a conversation, speak without waiting, and hang up.
+- Best for long-running agent work where chat is the wrong notification surface: completion pings, roadblocks, or quick human judgment calls.
+- Setup is non-trivial but practical: Telnyx/Twilio, ngrok webhooks, OpenAI STT, and optional Kokoro local TTS to avoid some API costs.
+- --
+
+</Item>
+
+<Item
+  id="86d90dd15b92a9aed91c530e8a4ea409fe3019b382ee2130d57086d249eab33b"
+  url="https://github.com/SawyerHood/dev-browser"
+  source="github"
+  title="SawyerHood/dev-browser: A Claude Skill to give your agent the ability to use a…"
+  savedAt="2026-05-13T17:28:29-07:00"
+  tags={["browser", "llm-agents", "typescript"]}
+>
+
+**TL;DR.** dev-browser gives AI agents a fast, sandboxed way to drive a real browser without handing them your whole machine.
+
+**Takeaways**
+
+- It exposes a Playwright-like browser API through sandboxed JavaScript, so agents can navigate, click, fill forms, screenshot, and inspect pages.
+- Built for agent workflows: persistent pages, Chrome auto-connect, `snapshotForAI`, and CLI-friendly scripts.
+- The interesting bet is security plus speed: QuickJS WASM isolates scripts from host access while benchmarks claim lower cost than MCP or extension-based browser control.
+- --
+- Source type: GitHub repository
+- Title: SawyerHood/dev-browser: A Claude Skill to give your agent the ability to use a web browser
+- URL: https://github.com/SawyerHood/dev-browser
+- Tags: browser, llm-agents, typescript
+
+</Item>
+
+<Item
+  id="79cdc6389e493d3ea7efbee47eea6b98181eb8da7c837af8de6e1770d2e27aad"
+  url="https://github.com/gbasin/agentboard"
+  source="github"
+  title="gbasin/agentboard"
+  savedAt="2026-05-13T17:27:58-07:00"
+  tags={["browser", "cli", "llm-agents"]}
+>
+
+**TL;DR.** Agentboard turns tmux into a phone-friendly control room for Claude, Codex, and other terminal agents.
+
+**Takeaways**
+
+- It gives AI-agent terminal sessions a web GUI with iOS Safari support, paste, touch scrolling, virtual keys, and desktop shortcuts.
+- Built for people running multiple agent sessions who want to monitor status, resume work, and switch sessions from phone or laptop.
+- The clever bit is agent awareness: it tracks logs, matches tmux windows, shows last prompts, and supports Hibernate/Wake flows.
+- Security is DIY: no built-in auth, so keep it localhost or behind Tailscale/LAN.
+- --
+- Source type: GitHub repository
+- Title: gbasin/agentboard
+- URL: https://github.com/gbasin/agentboard
+
+</Item>
+
+<Item
+  id="8af06ad844364e31304b9b599ef5d660a1d65773553fd745423991f1dddab755"
+  url="https://x.com/i/web/status/2054678598385361161"
+  source="x"
+  title="@noampomsky: @noampomsky: Some context: my friend raved about this book a coupl…"
+  savedAt="2026-05-13T17:27:51-07:00"
+  tags={["x"]}
+>
+
+**TL;DR.** “Helping” becomes control when your peace depends on someone else finally making the right choice.
+
+**Takeaways**
+
+- Codependency is less about being needed and more about trying to manage another person’s life from the outside.
+- Rescuing often shields people from the consequences that might actually force change.
+- The sanity move: tend to your own affairs, even when someone you love is choosing badly.
+
+</Item>
+
+<Item
+  id="2d35d1cd926df270c175fb28a53872389596cd2b8e140d394d822435c8acd07e"
+  url="https://x.com/i/article/2053997648353411072"
+  source="x"
+  title="I closed 70m in ARR in 2 years. Here's exactly how"
+  savedAt="2026-05-13T17:27:51-07:00"
+  tags={["article", "x"]}
+>
+
+**TL;DR.** Sales compounds when you turn every customer conversation into confidence, product leverage, and faster execution than incumbents can match.
+
+**Takeaways**
+
+- Treat small accounts like strategic accounts; early trust, feedback, and referrals can become the wedge.
+- Startup speed is a sales weapon: Slash won by shipping requested features in days instead of routing feedback through layers.
+- Confidence matters before certainty; when you don’t know the answer, own the room, get the answer, and keep momentum.
+- --
+
+</Item>
+
+<Item
+  id="f68ceeb830761c565483653f14b99c4638c6d95f6a282b97325f842e7fc6843d"
+  url="https://github.com/vercel/satori"
+  source="github"
+  title="vercel/satori"
+  savedAt="2026-05-13T17:27:31-07:00"
+  tags={["llm-agents", "typescript"]}
+>
+
+**TL;DR.** Satori turns React-like JSX into static SVGs, making programmable social cards and OG images feel like building tiny web layouts.
+
+**Takeaways**
+
+- Built for developers who want to generate static visuals from HTML/CSS-style components without spinning up a browser.
+- It supports a useful but limited CSS/HTML subset, so it is great for controlled image templates, not pixel-perfect browser rendering.
+- The key trick is its own SVG-focused layout and font engine, which makes it portable but excludes interactivity, scripts, and full web-platform behavior.
+
+</Item>
+
+<Item
+  id="49834affa1a96f2971ccc710cefdf8d479dbc82d61fa8970e8f0cdb83bd49322"
+  url="https://github.com/photon-hq/imessage-kit"
+  source="github"
+  title="photon-hq/imessage-kit"
+  savedAt="2026-05-13T17:26:59-07:00"
+  tags={["llm-agents", "macos", "typescript"]}
+>
+
+**TL;DR.** iMessage is becoming programmable agent infrastructure, with this SDK turning macOS Messages into a TypeScript-readable, scriptable interface.
+
+**Takeaways**
+
+- Reads, sends, watches, and automates iMessage chats on macOS, including text, images, files, chat listing, and history queries.
+- Built for AI agents and automation tools that need local message access, but it requires Full Disk Access and uses AppleScript for sending.
+- The sharp detail: sends are fire-and-forget, so serious workflows need the watcher to confirm delivery state from the Messages database.
+- --
+- Source type: GitHub repository
+- Title: photon-hq/imessage-kit
+- URL: https://github.com/photon-hq/imessage-kit
+- Tags: llm-agents, macos, typescript
+
+</Item>
+
+<Item
+  id="401c6af5b51d16a5ed2fec534d784f6703daaf3bc552acfb102e4884b18cd6ad"
+  url="https://github.com/vercel-labs/agent-browser"
+  source="github"
+  title="vercel-labs/agent-browser"
+  savedAt="2026-05-13T17:26:32-07:00"
+  tags={["browser", "cli", "llm-agents"]}
+>
+
+**TL;DR.** A fast Rust CLI gives AI agents a purpose-built way to drive Chrome without dragging in a full browser automation stack.
+
+**Takeaways**
+
+- It handles the core agent loop: open pages, inspect accessibility trees, click, type, wait, screenshot, and batch actions from the command line.
+- Built for agents rather than test suites, with semantic element finding, auth state reuse, cookies/storage control, network interception, traces, and console debugging.
+- Strong signal: 23k+ stars, heavy activity, and practical install paths via npm, Homebrew, Cargo, or source.
+- --
+- Source type: GitHub repository
+- Title: vercel-labs/agent-browser
+- URL: https://github.com/vercel-labs/agent-browser
+- Tags: browser, cli, llm-agents, rust
+
+</Item>
+
+<Item
+  id="ca2e5c3b54d71a227f6fe00f094fc11e673a4e77ae9225b296ff74575b242b8d"
+  url="https://github.com/vercel-labs/json-render"
+  source="github"
+  title="vercel-labs/json-render"
+  savedAt="2026-05-13T17:26:05-07:00"
+  tags={["llm-agents", "typescript"]}
+>
+
+**TL;DR.** AI-generated UI gets safer when the model is boxed into your component catalog instead of trusted to invent the interface.
+
+**Takeaways**
+
+- json-render turns prompts into schema-constrained JSON specs, then renders them through approved components and actions.
+- It is for teams building generative UI across React, Vue, Svelte, React Native, PDFs, email, video, terminal UIs, and 3D scenes.
+- The interesting bet is portability: one catalog can drive multiple render targets while still supporting streaming and predictable output.
+- --
+- Source type: GitHub repository
+- Title: vercel-labs/json-render
+- URL: https://github.com/vercel-labs/json-render
+- Tags: llm-agents, typescript
+
+</Item>
+
+<Item
+  id="466841457689e464be90b973020d0fcd9acfdcb9e9a0418f18555a171daae519"
+  url="https://github.com/21st-dev/1code"
+  source="github"
+  title="21st-dev/1code"
+  savedAt="2026-05-13T17:25:39-07:00"
+  tags={["api", "coding", "llm-agents"]}
+>
+
+**TL;DR.** 1Code is a Cursor-like control room for running Claude Code, Codex, and other coding agents across isolated branches, cloud sandboxes, and automation triggers.
+
+**Takeaways**
+
+- It wraps coding agents in a visual app with diff previews, tool execution, Git staging, PR creation, terminal access, file browsing, and model/provider switching.
+- The core safety move is Git worktree isolation: each chat runs on its own branch so agents do not stomp on the main codebase.
+- Best for teams or power users who want coding agents to run continuously from GitHub, Linear, Slack, or API triggers, not just inside a local chat window.
+- Strong early traction: TypeScript repo with 5k+ stars, 500+ forks, and active issue flow.
+- --
+- Source type: GitHub repository
+- Title: 21st-dev/1code
+- URL: https://github.com/21st-dev/1code
+
+</Item>
+
+<Item
+  id="b3632493832014f40116b56b0bce433522fd181aacbe2adeb40448e3616fc0a0"
+  url="https://github.com/varadhjain/granola-claude-plugin"
+  source="github"
+  title="varadhjain/granola-claude-plugin"
+  savedAt="2026-05-13T17:25:14-07:00"
+  tags={["cli", "llm-agents", "macos"]}
+>
+
+**TL;DR.** Granola Archivist turns your Granola meetings into local Markdown archives, with optional OpenAI extraction for action items and meeting intelligence.
+
+**Takeaways**
+
+- It exports Granola notes into dated Markdown files with metadata, notes, and optional summaries.
+- The default mode is privacy-friendly: local-only, no telemetry, and no AI key required for basic archiving.
+- Optional OpenAI processing pulls out attendees, companies, action items, and insights at very low per-meeting cost.
+- --
+- Source type: GitHub repository
+- Title: varadhjain/granola-claude-plugin
+- URL: https://github.com/varadhjain/granola-claude-plugin
+
+</Item>
+
+<Item
+  id="846c66554e98e291d91a7e2824f140a73c024420e72c7ec30cc9c861cc58ec40"
+  url="https://github.com/CyrusNuevoDia/emergent-wiki"
+  source="github"
+  title="CyrusNuevoDia/emergent-wiki"
+  savedAt="2026-05-13T17:22:30-07:00"
+  tags={["api", "cli", "evolution"]}
+>
+
+**TL;DR.** emergent.wiki turns a wiki into a living social simulation where AI agents build, dispute, and recursively expand knowledge on their own.
+
+**Takeaways**
+
+- It’s a MediaWiki-based system where autonomous agents write articles, fill wanted pages, challenge claims, and debate on Talk pages.
+- The interesting mechanic is protocol design: red links force future work, while the priority stack makes agents respond to existing tensions before inventing new material.
+- This is for people interested in agent societies, collaborative knowledge systems, and weird experiments in making “growth” an emergent property instead of a command.
+- --
+- Source type: GitHub repository
+- Title: CyrusNuevoDia/emergent-wiki
+- URL: https://github.com/CyrusNuevoDia/emergent-wiki
+- Tags: api, cli, evolution, llm-agents, social-simulation
+
+</Item>
+
+<Item
+  id="4d0e05e5d5ed6f2ae8a7f92f5c34c1014198445ee32d759d2865435f73306d31"
+  url="https://github.com/PrimeIntellect-ai/renderers"
+  source="github"
+  title="PrimeIntellect-ai/renderers"
+  savedAt="2026-05-13T17:22:03-07:00"
+  tags={["context-engineering", "llm-agents", "python"]}
+>
+
+**TL;DR.** `renderers` fixes a sneaky RL-agent failure mode: chat history should be extended, not re-tokenized.
+
+**Takeaways**
+
+- Turns model chat templates into programmable Python renderers that can render prompts, parse completions, and carry multi-turn rollouts forward.
+- Built for LLM training/inference stacks where byte-for-byte token continuity matters, especially RL with sampled assistant history.
+- The key trick is `bridge_to_next_turn`, which avoids `apply_chat_template` drift from BPE changes, boolean parsing bugs, or stripped reasoning traces.
+- Supports Qwen, GLM, DeepSeek, Kimi, and others, with a fallback renderer for unsupported models.
+- --
+- Source type: GitHub repository
+- Title: PrimeIntellect-ai/renderers
+- URL: https://github.com/PrimeIntellect-ai/renderers
+
+</Item>
+
+<Item
+  id="231378e2b4346d713b7103261781cbedeb8e68d4529cf9c950c0e7f45b2b67b0"
+  url="https://github.com/aidenwallis/kysely-d1"
+  source="github"
+  title="aidenwallis/kysely-d1"
+  savedAt="2026-05-13T17:21:25-07:00"
+  tags={["typescript"]}
+>
+
+**TL;DR.** Kysely gets a Cloudflare D1 dialect, so Workers apps can keep type-safe SQL without dropping to raw D1 calls.
+
+**Takeaways**
+
+- Provides `D1Dialect` for wiring a D1 binding directly into a `Kysely&lt;Database&gt;` client.
+- Best fit: TypeScript Cloudflare Workers projects that already like Kysely’s typed query builder.
+- Small but real ecosystem signal: 338 stars, 22 forks, and a working D1 key-value example included.
+
+</Item>
